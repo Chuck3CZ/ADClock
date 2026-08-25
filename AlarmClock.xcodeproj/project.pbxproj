@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		069D48D99A25605409736CC1 /* com.3czplay.adclock.wakehelper.plist in Embed Wake Helper LaunchDaemon */ = {isa = PBXBuildFile; fileRef = 5B04831F362A4F4665B8F702 /* com.3czplay.adclock.wakehelper.plist */; };
+		069D48D99A25605409736CC1 /* ./com.3czplay.adclock.wakehelper.plist in Embed Wake Helper LaunchDaemon */ = {isa = PBXBuildFile; fileRef = 5B04831F362A4F4665B8F702 /* ./com.3czplay.adclock.wakehelper.plist */; };
 		5B6DC7EF2E481EEE000FC22E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BF23A91DBA84A2005D1760 /* AVFoundation.framework */; };
 		5B6DC7F12E481EF0000FC22E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		5B6DC7F32E481EF1000FC22E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC092FE709A9806C004B788B /* CoreAudio.framework */; };
@@ -35,7 +35,7 @@
 		DC117AAD0A1888FE0096B086 /* StopwatchWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = DC117AAC0A1888FE0096B086 /* StopwatchWindow.nib */; };
 		DC117AB90A188C5D0096B086 /* TimerWindow.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC117AB70A188C5D0096B086 /* TimerWindow.strings */; };
 		DC117AC50A188D880096B086 /* StopwatchWindow.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC117AC30A188D880096B086 /* StopwatchWindow.strings */; };
-		DC121FBE06BA2D4100132FBF /* ADClock.icns in Resources */ = {isa = PBXBuildFile; fileRef = DC121FBD06BA2D4100132FBF /* ADClock.icns */; };
+		DC121FBE06BA2D4100132FBF /* images/ADClock.icns in Resources */ = {isa = PBXBuildFile; fileRef = DC121FBD06BA2D4100132FBF /* images/ADClock.icns */; };
 		DC1387EB09ACD8AD006ECAB5 /* ITunesPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1387E909ACD8AD006ECAB5 /* ITunesPlayer.h */; };
 		DC1387EC09ACD8AD006ECAB5 /* ITunesPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1387EA09ACD8AD006ECAB5 /* ITunesPlayer.m */; };
 		DC13880509ACDE72006ECAB5 /* ITunesData.h in Headers */ = {isa = PBXBuildFile; fileRef = DC13880309ACDE72006ECAB5 /* ITunesData.h */; };
@@ -133,7 +133,7 @@
 			dstPath = Contents/Library/LaunchDaemons;
 			dstSubfolderSpec = 1;
 			files = (
-				069D48D99A25605409736CC1 /* com.3czplay.adclock.wakehelper.plist in Embed Wake Helper LaunchDaemon */,
+				069D48D99A25605409736CC1 /* ./com.3czplay.adclock.wakehelper.plist in Embed Wake Helper LaunchDaemon */,
 			);
 			name = "Embed Wake Helper LaunchDaemon";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,11 +212,11 @@
 		32CA4F630368D1EE00C91783 /* ADClock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADClock_Prefix.pch; sourceTree = "<group>"; };
 		3C61A9828332FDD15B458A18 /* WakeHelper.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = WakeHelper.entitlements; sourceTree = "<group>"; };
 		3EB93E8D756E964B85BB4962 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		5B04831F362A4F4665B8F702 /* com.3czplay.adclock.wakehelper.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = ./com.3czplay.adclock.wakehelper.plist; sourceTree = "<group>"; };
+		5B04831F362A4F4665B8F702 /* ./com.3czplay.adclock.wakehelper.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = ./com.3czplay.adclock.wakehelper.plist; sourceTree = "<group>"; };
 		5B6DC8012E481EF7000FC22E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		814EDA2EE4FA56439633EF96 /* ADClock.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = ADClock.entitlements; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* AD Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "AD Clock.app"; path = "AD Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* AD Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AD Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97408BDDD6D9D8EC7328EDEC /* AlarmWakeHelperProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AlarmWakeHelperProtocol.h; sourceTree = "<group>"; };
 		B7F65E7E189E152501F12272 /* wakehelper */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = text; path = wakehelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3F709F56561FC776FE1B569 /* AlarmController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		DC117ACC0A188E000096B086 /* nl */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/StopwatchWindow.strings; sourceTree = "<group>"; };
 		DC117ACD0A188E0C0096B086 /* it */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/StopwatchWindow.strings; sourceTree = "<group>"; };
 		DC117ACE0A188E1B0096B086 /* he */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/StopwatchWindow.strings; sourceTree = "<group>"; };
-		DC121FBD06BA2D4100132FBF /* ADClock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = images/ADClock.icns; sourceTree = "<group>"; };
+		DC121FBD06BA2D4100132FBF /* images/ADClock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = images/ADClock.icns; sourceTree = "<group>"; };
 		DC13879009AB844A006ECAB5 /* da */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC13879309AB8454006ECAB5 /* da */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = da; path = da.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		DC13879609AB8463006ECAB5 /* da */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = da; path = da.lproj/AlarmEditor.nib; sourceTree = "<group>"; };
@@ -564,7 +564,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA = {
+		29B97314FDCFA39411CA2CEA /* AlarmClock */ = {
 			isa = PBXGroup;
 			children = (
 				DC8CA6B0068DFE9B00F1BB2E /* Notes */,
@@ -602,7 +602,7 @@
 				DC7410860A3ECAB200CEB97F /* MyApplication.m */,
 				97408BDDD6D9D8EC7328EDEC /* AlarmWakeHelperProtocol.h */,
 				1893924C8B5FAC1A1819E7D4 /* WakeHelperMain.m */,
-				5B04831F362A4F4665B8F702 /* com.3czplay.adclock.wakehelper.plist */,
+				5B04831F362A4F4665B8F702 /* ./com.3czplay.adclock.wakehelper.plist */,
 				814EDA2EE4FA56439633EF96 /* ADClock.entitlements */,
 				3C61A9828332FDD15B458A18 /* WakeHelper.entitlements */,
 				C3F709F56561FC776FE1B569 /* AlarmController.h */,
@@ -623,7 +623,7 @@
 				DCEAE99E07DC4624007FE65C /* CalendarBack.tiff */,
 				DCBDF73F0B54801900407A6C /* Playlist Icons */,
 				DCBDF75E0B54805100407A6C /* Preferences Icons */,
-				DC121FBD06BA2D4100132FBF /* ADClock.icns */,
+				DC121FBD06BA2D4100132FBF /* images/ADClock.icns */,
 				DC7410AF0A3ECF0600CEB97F /* ADClock.sdef */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				DCDB0F6109876D9900FE4707 /* InfoPlist.strings */,
@@ -916,7 +916,7 @@
 				ja,
 				en,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* AlarmClock */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -934,7 +934,7 @@
 			files = (
 				DCDB0F7B09876E3400FE4707 /* MainMenu.nib in Resources */,
 				DCDB0F6209876D9900FE4707 /* InfoPlist.strings in Resources */,
-				DC121FBE06BA2D4100132FBF /* ADClock.icns in Resources */,
+				DC121FBE06BA2D4100132FBF /* images/ADClock.icns in Resources */,
 				DC8FAFE806F57A76005B5B92 /* AlarmWindow.nib in Resources */,
 				DCE204290998A8FD00B764E0 /* Credits.html in Resources */,
 				DCEAE99F07DC4624007FE65C /* CalendarBack.tiff in Resources */,
@@ -1441,7 +1441,7 @@
 		DCD949B80856C4500026EC8A /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = ADClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1495,7 +1495,7 @@
 		DCD949B90856C4500026EC8A /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = ADClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
