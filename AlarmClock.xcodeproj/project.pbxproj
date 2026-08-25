@@ -64,8 +64,6 @@
 		DC8FAFEC06F57B45005B5B92 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FAFEA06F57B45005B5B92 /* AlarmController.m */; };
 		DCA0B3B907B0566900004706 /* AlarmTasks.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA0B3B707B0566900004706 /* AlarmTasks.h */; };
 		DCA0B3BA07B0566900004706 /* AlarmTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA0B3B807B0566900004706 /* AlarmTasks.m */; };
-		DCA0B4D607B072FF00004706 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
-		DCA0B4DA07B0732C00004706 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA0B4D907B0732C00004706 /* IOKit.framework */; };
 		DCB385040AEABC680047D654 /* moon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB385020AEABC680047D654 /* moon.png */; };
 		DCB385050AEABC680047D654 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB385030AEABC680047D654 /* sun.png */; };
 		DCBDF74C0B54801900407A6C /* iTunesAudiobooks.png in Resources */ = {isa = PBXBuildFile; fileRef = DCBDF7400B54801900407A6C /* iTunesAudiobooks.png */; };
@@ -1373,6 +1371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Deployment;
 		};
@@ -1398,6 +1397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -1423,6 +1423,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Development;
 		};
@@ -1527,88 +1528,6 @@
 				);
 				WARNING_LDFLAGS = "-Wno-selector";
 				WRAPPER_EXTENSION = app;
-				ZERO_LINK = NO;
-			};
-			name = Deployment;
-		};
-		DCD949BC0856C4500026EC8A /* Development */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
-				DEBUGGING_SYMBOLS = YES;
-				DEVELOPMENT_TEAM = LT2EBE5TBV;
-				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INSTALL_PATH = /usr/local/bin;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock2;
-				PRODUCT_NAME = helper;
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				ZERO_LINK = YES;
-			};
-			name = Development;
-		};
-		DCD949BD0856C4500026EC8A /* Deployment */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = YES;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = LT2EBE5TBV;
-				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INSTALL_PATH = /usr/local/bin;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock2;
-				PRODUCT_NAME = helper;
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
 				ZERO_LINK = NO;
 			};
 			name = Deployment;
@@ -1735,6 +1654,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
