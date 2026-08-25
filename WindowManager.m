@@ -8,10 +8,10 @@
 #import "WindowManager.h"
 #import "Prefs.h"
 #import "Alarm.h"
-#import "AlarmScheduler.h"
+#import "ADClockScheduler.h"
 #import "EditorController.h"
 #import "TransparentController.h"
-#import "AlarmController.h"
+#import "ADClockController.h"
 #import "TimerController.h"
 #import "StopwatchController.h"
 
@@ -139,7 +139,7 @@ static NSLock *lock;
 **/
 + (void)openAlarmEditorWithAlarmIndex:(int)alarmIndex
 {
-	Alarm *alarmRef = [AlarmScheduler alarmReferenceForIndex:alarmIndex];
+	Alarm *alarmRef = [ADClockScheduler alarmReferenceForIndex:alarmIndex];
 	
 	BOOL found = NO;
 	int arrayIndex = 0;
@@ -203,24 +203,24 @@ static NSLock *lock;
 
 /**
  This method takes care of opening a new alarm window.
- The alarm window will play the alarm for the lastAlarm in the AlarmScheduler.
+ The alarm window will play the alarm for the lastAlarm in the ADClockScheduler.
  This method will also manage a reference to the open alarm window,
  and handle removing the reference when the alarm is stopped.
 **/
 + (void)openAlarmWindow
 {
-	// Create AlarmController, and display
-	// AlarmController releases itself upon window close
-	AlarmController *temp = [[AlarmController alloc] init];
+	// Create ADClockController, and display
+	// ADClockController releases itself upon window close
+	ADClockController *temp = [[ADClockController alloc] init];
 	[temp showWindow:self];
 	
-	// We also add the new AlarmController to the array of alarm windows
+	// We also add the new ADClockController to the array of alarm windows
 	// This allows us to query all the alarm windows when the computer wants to go to sleep
 	[alarmWindows addObject:temp];
 }
 
 /**
- Returns a list of references to all open AlarmControllers.
+ Returns a list of references to all open ADClockControllers.
 **/
 + (NSArray *)alarmWindows
 {
@@ -514,7 +514,7 @@ static NSLock *lock;
 		int i;
 		for(i = 0; i < [alarmWindows count]; i++)
 		{
-			AlarmController *currentAlarm = [alarmWindows objectAtIndex:i];
+			ADClockController *currentAlarm = [alarmWindows objectAtIndex:i];
 			
 			if([currentAlarm alarmStatus] == STATUS_ACTIVE)
 			{

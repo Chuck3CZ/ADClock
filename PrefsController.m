@@ -1,6 +1,6 @@
 #import "PrefsController.h"
 #import "Prefs.h"
-#import "AlarmTasks.h"
+#import "ADClockTasks.h"
 #import <ServiceManagement/ServiceManagement.h>
 
 #ifdef ENABLE_UPDATES
@@ -360,7 +360,7 @@
 	[window center];
 	
 	// Check that wake from sleep is possible if "wake from sleep" option is selected
-	if([Prefs wakeFromSleep] && ![AlarmTasks isAuthenticated])
+	if([Prefs wakeFromSleep] && ![ADClockTasks isAuthenticated])
 	{
 		// Preferences do not match system!  Bring to users attention
 		
@@ -427,7 +427,7 @@
 
 	NSMutableString *command = [NSMutableString string];
 	[command appendString:@"tell application \"System Events\" \n"];
-	[command appendString:@"if \"Alarm Clock\" is in (name of every login item) then \n"];
+	[command appendString:@"if \"AD Clock\" is in (name of every login item) then \n"];
 	[command appendString:@"return yes \n"];
 	[command appendString:@"else \n"];
 	[command appendString:@"return no \n"];
@@ -538,7 +538,7 @@
 	
 	if(flag)
 	{
-		if([AlarmTasks authenticate])
+		if([ADClockTasks authenticate])
 		{
 			[Prefs setWakeFromSleep:YES];
 			[deauthenticateButton setEnabled:YES];
@@ -566,7 +566,7 @@
 
 - (IBAction)deauthenticate:(id)sender
 {
-	if([AlarmTasks deauthenticate])
+	if([ADClockTasks deauthenticate])
 	{
 		[Prefs setWakeFromSleep:NO];
 		[wakeFromSleepButton setState:NSControlStateValueOff];
@@ -615,7 +615,7 @@
 	NSMutableString *command = [NSMutableString string];
 	[command appendString:@"set app_path to path to me \n"];
 	[command appendString:@"tell application \"System Events\" \n"];
-	[command appendString:@"if \"Alarm Clock\" is not in (name of every login item) then \n"];
+	[command appendString:@"if \"AD Clock\" is not in (name of every login item) then \n"];
 	[command appendString:@"make login item at end with properties {hidden:false, path:app_path} \n"];
 	[command appendString:@"end if \n"];
 	[command appendString:@"end tell"];
@@ -637,8 +637,8 @@
 
 	NSMutableString *command = [NSMutableString string];
 	[command appendString:@"tell application \"System Events\" \n"];
-	[command appendString:@"if \"Alarm Clock\" is in (name of every login item) then \n"];
-	[command appendString:@"delete (every login item whose name is \"Alarm Clock\") \n"];
+	[command appendString:@"if \"AD Clock\" is in (name of every login item) then \n"];
+	[command appendString:@"delete (every login item whose name is \"AD Clock\") \n"];
 	[command appendString:@"end if \n"];
 	[command appendString:@"end tell"];
 

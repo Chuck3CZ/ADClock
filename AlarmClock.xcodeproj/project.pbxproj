@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		069D48D99A25605409736CC1 /* com.3czplay.alarmclock3.wakehelper.plist in Embed Wake Helper LaunchDaemon */ = {isa = PBXBuildFile; fileRef = 5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */; };
+		069D48D99A25605409736CC1 /* com.3czplay.adclock.wakehelper.plist in Embed Wake Helper LaunchDaemon */ = {isa = PBXBuildFile; fileRef = 5B04831F362A4F4665B8F702 /* com.3czplay.adclock.wakehelper.plist */; };
 		5B6DC7EF2E481EEE000FC22E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BF23A91DBA84A2005D1760 /* AVFoundation.framework */; };
 		5B6DC7F12E481EF0000FC22E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		5B6DC7F32E481EF1000FC22E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC092FE709A9806C004B788B /* CoreAudio.framework */; };
@@ -18,7 +18,7 @@
 		5B6DC8002E481EF6000FC22E /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DC8012E481EF7000FC22E /* ServiceManagement.framework */; };
 		6E088F0FFBE35BA96F5A1AAD /* wakehelper in Embed Wake Helper */ = {isa = PBXBuildFile; fileRef = B7F65E7E189E152501F12272 /* wakehelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8952B34CBEAA37B7475E538E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB93E8D756E964B85BB4962 /* Cocoa.framework */; };
-		8D1107280486CEB800E47090 /* AlarmClock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* AlarmClock_Prefix.pch */; };
+		8D1107280486CEB800E47090 /* ADClock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* ADClock_Prefix.pch */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		D6D162D29C42C8568FC885DE /* WakeHelperMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893924C8B5FAC1A1819E7D4 /* WakeHelperMain.m */; };
 		DC092FA609A97E17004B788B /* MTCoreAudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = DC092FA409A97E17004B788B /* MTCoreAudioDevice.h */; };
@@ -35,7 +35,7 @@
 		DC117AAD0A1888FE0096B086 /* StopwatchWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = DC117AAC0A1888FE0096B086 /* StopwatchWindow.nib */; };
 		DC117AB90A188C5D0096B086 /* TimerWindow.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC117AB70A188C5D0096B086 /* TimerWindow.strings */; };
 		DC117AC50A188D880096B086 /* StopwatchWindow.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC117AC30A188D880096B086 /* StopwatchWindow.strings */; };
-		DC121FBE06BA2D4100132FBF /* AlarmClock.icns in Resources */ = {isa = PBXBuildFile; fileRef = DC121FBD06BA2D4100132FBF /* AlarmClock.icns */; };
+		DC121FBE06BA2D4100132FBF /* ADClock.icns in Resources */ = {isa = PBXBuildFile; fileRef = DC121FBD06BA2D4100132FBF /* ADClock.icns */; };
 		DC1387EB09ACD8AD006ECAB5 /* ITunesPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1387E909ACD8AD006ECAB5 /* ITunesPlayer.h */; };
 		DC1387EC09ACD8AD006ECAB5 /* ITunesPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1387EA09ACD8AD006ECAB5 /* ITunesPlayer.m */; };
 		DC13880509ACDE72006ECAB5 /* ITunesData.h in Headers */ = {isa = PBXBuildFile; fileRef = DC13880309ACDE72006ECAB5 /* ITunesData.h */; };
@@ -54,16 +54,16 @@
 		DC6C82A607F96A5000933C45 /* RoundedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6C82A407F96A5000933C45 /* RoundedWindow.m */; };
 		DC7410870A3ECAB200CEB97F /* MyApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7410850A3ECAB200CEB97F /* MyApplication.h */; };
 		DC7410880A3ECAB200CEB97F /* MyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7410860A3ECAB200CEB97F /* MyApplication.m */; };
-		DC7410B00A3ECF0600CEB97F /* AlarmClock.sdef in Resources */ = {isa = PBXBuildFile; fileRef = DC7410AF0A3ECF0600CEB97F /* AlarmClock.sdef */; };
+		DC7410B00A3ECF0600CEB97F /* ADClock.sdef in Resources */ = {isa = PBXBuildFile; fileRef = DC7410AF0A3ECF0600CEB97F /* ADClock.sdef */; };
 		DC81FABB077E02A500F0C1C6 /* CalendarAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DC81FAB9077E02A500F0C1C6 /* CalendarAdditions.h */; };
 		DC81FABC077E02A500F0C1C6 /* CalendarAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DC81FABA077E02A500F0C1C6 /* CalendarAdditions.m */; };
 		DC8CA6C6068E026F00F1BB2E /* Prefs.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8CA6C4068E026F00F1BB2E /* Prefs.h */; };
 		DC8CA6C7068E026F00F1BB2E /* Prefs.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8CA6C5068E026F00F1BB2E /* Prefs.m */; };
 		DC8FAFE806F57A76005B5B92 /* AlarmWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = DC8FAFE606F57A76005B5B92 /* AlarmWindow.nib */; };
-		DC8FAFEB06F57B45005B5B92 /* AlarmController.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8FAFE906F57B45005B5B92 /* AlarmController.h */; };
-		DC8FAFEC06F57B45005B5B92 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FAFEA06F57B45005B5B92 /* AlarmController.m */; };
-		DCA0B3B907B0566900004706 /* AlarmTasks.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA0B3B707B0566900004706 /* AlarmTasks.h */; };
-		DCA0B3BA07B0566900004706 /* AlarmTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA0B3B807B0566900004706 /* AlarmTasks.m */; };
+		DC8FAFEB06F57B45005B5B92 /* ADClockController.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8FAFE906F57B45005B5B92 /* ADClockController.h */; };
+		DC8FAFEC06F57B45005B5B92 /* ADClockController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FAFEA06F57B45005B5B92 /* ADClockController.m */; };
+		DCA0B3B907B0566900004706 /* ADClockTasks.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA0B3B707B0566900004706 /* ADClockTasks.h */; };
+		DCA0B3BA07B0566900004706 /* ADClockTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA0B3B807B0566900004706 /* ADClockTasks.m */; };
 		DCB385040AEABC680047D654 /* moon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB385020AEABC680047D654 /* moon.png */; };
 		DCB385050AEABC680047D654 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB385030AEABC680047D654 /* sun.png */; };
 		DCBDF74C0B54801900407A6C /* iTunesAudiobooks.png in Resources */ = {isa = PBXBuildFile; fileRef = DCBDF7400B54801900407A6C /* iTunesAudiobooks.png */; };
@@ -104,8 +104,8 @@
 		DCEAE99F07DC4624007FE65C /* CalendarBack.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DCEAE99E07DC4624007FE65C /* CalendarBack.tiff */; };
 		DCEAEA6B07E04996007FE65C /* EditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEAEA6907E04996007FE65C /* EditorController.m */; };
 		DCEAEA6C07E04996007FE65C /* EditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEAEA6A07E04996007FE65C /* EditorController.h */; };
-		DCEAEB9B07E16728007FE65C /* AlarmScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEAEB9907E16728007FE65C /* AlarmScheduler.h */; };
-		DCEAEB9C07E16728007FE65C /* AlarmScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEAEB9A07E16728007FE65C /* AlarmScheduler.m */; };
+		DCEAEB9B07E16728007FE65C /* ADClockScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEAEB9907E16728007FE65C /* ADClockScheduler.h */; };
+		DCEAEB9C07E16728007FE65C /* ADClockScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEAEB9A07E16728007FE65C /* ADClockScheduler.m */; };
 		DCEAEC1607E177C8007FE65C /* Alarm.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEAEC1407E177C8007FE65C /* Alarm.h */; };
 		DCEAEC1707E177C8007FE65C /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEAEC1507E177C8007FE65C /* Alarm.m */; };
 		DCEAED3607E19FF4007FE65C /* Date.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEAED3507E19FF4007FE65C /* Date.png */; };
@@ -113,6 +113,7 @@
 		DCEAED6407E1A530007FE65C /* stop.tif in Resources */ = {isa = PBXBuildFile; fileRef = DCEAED6207E1A530007FE65C /* stop.tif */; };
 		DCF5119F09B4835900052799 /* trayIconColor.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF5119D09B4835900052799 /* trayIconColor.png */; };
 		DCF511A009B4835900052799 /* trayIconColorAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF5119E09B4835900052799 /* trayIconColorAlert.png */; };
+		E30FFDEBCE4E7E07468D932C /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC67837485BC408E2059D3FF /* AlarmController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +133,7 @@
 			dstPath = Contents/Library/LaunchDaemons;
 			dstSubfolderSpec = 1;
 			files = (
-				069D48D99A25605409736CC1 /* com.3czplay.alarmclock3.wakehelper.plist in Embed Wake Helper LaunchDaemon */,
+				069D48D99A25605409736CC1 /* com.3czplay.adclock.wakehelper.plist in Embed Wake Helper LaunchDaemon */,
 			);
 			name = "Embed Wake Helper LaunchDaemon";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,16 +209,18 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		32CA4F630368D1EE00C91783 /* AlarmClock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmClock_Prefix.pch; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* ADClock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADClock_Prefix.pch; sourceTree = "<group>"; };
 		3C61A9828332FDD15B458A18 /* WakeHelper.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = WakeHelper.entitlements; sourceTree = "<group>"; };
 		3EB93E8D756E964B85BB4962 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = com.3czplay.alarmclock3.wakehelper.plist; sourceTree = "<group>"; };
+		5B04831F362A4F4665B8F702 /* com.3czplay.adclock.wakehelper.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = ./com.3czplay.adclock.wakehelper.plist; sourceTree = "<group>"; };
 		5B6DC8012E481EF7000FC22E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
-		814EDA2EE4FA56439633EF96 /* AlarmClock.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = AlarmClock.entitlements; sourceTree = "<group>"; };
+		814EDA2EE4FA56439633EF96 /* ADClock.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = ADClock.entitlements; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Alarm Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alarm Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* AD Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "AD Clock.app"; path = "AD Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97408BDDD6D9D8EC7328EDEC /* AlarmWakeHelperProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AlarmWakeHelperProtocol.h; sourceTree = "<group>"; };
 		B7F65E7E189E152501F12272 /* wakehelper */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = text; path = wakehelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F709F56561FC776FE1B569 /* AlarmController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
+		CC67837485BC408E2059D3FF /* AlarmController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
 		DC092FA409A97E17004B788B /* MTCoreAudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCoreAudioDevice.h; sourceTree = "<group>"; };
 		DC092FA509A97E17004B788B /* MTCoreAudioDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCoreAudioDevice.m; sourceTree = "<group>"; };
 		DC092FE709A9806C004B788B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
@@ -259,7 +262,7 @@
 		DC117ACC0A188E000096B086 /* nl */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/StopwatchWindow.strings; sourceTree = "<group>"; };
 		DC117ACD0A188E0C0096B086 /* it */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/StopwatchWindow.strings; sourceTree = "<group>"; };
 		DC117ACE0A188E1B0096B086 /* he */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/StopwatchWindow.strings; sourceTree = "<group>"; };
-		DC121FBD06BA2D4100132FBF /* AlarmClock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AlarmClock.icns; path = images/AlarmClock.icns; sourceTree = "<group>"; };
+		DC121FBD06BA2D4100132FBF /* ADClock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = images/ADClock.icns; sourceTree = "<group>"; };
 		DC13879009AB844A006ECAB5 /* da */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC13879309AB8454006ECAB5 /* da */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = da; path = da.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		DC13879609AB8463006ECAB5 /* da */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = da; path = da.lproj/AlarmEditor.nib; sourceTree = "<group>"; };
@@ -362,7 +365,7 @@
 		DC6CC74B0A300B5600CFB6EF /* pt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = pt; path = pt.lproj/Credits.html; sourceTree = "<group>"; };
 		DC7410850A3ECAB200CEB97F /* MyApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplication.h; sourceTree = "<group>"; };
 		DC7410860A3ECAB200CEB97F /* MyApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplication.m; sourceTree = "<group>"; };
-		DC7410AF0A3ECF0600CEB97F /* AlarmClock.sdef */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.sdef; path = AlarmClock.sdef; sourceTree = "<group>"; };
+		DC7410AF0A3ECF0600CEB97F /* ADClock.sdef */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.sdef; path = ADClock.sdef; sourceTree = "<group>"; };
 		DC79559009D0FC8300642CA2 /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = es; path = es.lproj/Credits.html; sourceTree = "<group>"; };
 		DC79559709D0FD6C00642CA2 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = es; path = es.lproj/donate.gif; sourceTree = "<group>"; };
 		DC7955DA09D12C5700642CA2 /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = da; path = da.lproj/Credits.html; sourceTree = "<group>"; };
@@ -385,8 +388,8 @@
 		DC87837A09CF2E48006E78B4 /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = es.lproj/AlarmWindow.nib; sourceTree = "<group>"; };
 		DC8CA6C4068E026F00F1BB2E /* Prefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefs.h; sourceTree = "<group>"; };
 		DC8CA6C5068E026F00F1BB2E /* Prefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prefs.m; sourceTree = "<group>"; };
-		DC8FAFE906F57B45005B5B92 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
-		DC8FAFEA06F57B45005B5B92 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
+		DC8FAFE906F57B45005B5B92 /* ADClockController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ADClockController.h; sourceTree = "<group>"; };
+		DC8FAFEA06F57B45005B5B92 /* ADClockController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ADClockController.m; sourceTree = "<group>"; };
 		DC9E79580C28F0A200D815DF /* el */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = el; path = el.lproj/Credits.html; sourceTree = "<group>"; };
 		DC9E795B0C28F0EC00D815DF /* el */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = el; path = el.lproj/donate.gif; sourceTree = "<group>"; };
 		DC9E795E0C28F0F800D815DF /* el */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -399,8 +402,8 @@
 		DC9E79730C28F2DE00D815DF /* el */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el; path = el.lproj/AlarmWindow.nib; sourceTree = "<group>"; };
 		DC9E79760C28F2E700D815DF /* el */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el; path = el.lproj/TimerWindow.nib; sourceTree = "<group>"; };
 		DC9E79790C28F2F100D815DF /* el */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el; path = el.lproj/StopwatchWindow.nib; sourceTree = "<group>"; };
-		DCA0B3B707B0566900004706 /* AlarmTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTasks.h; sourceTree = "<group>"; };
-		DCA0B3B807B0566900004706 /* AlarmTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTasks.m; sourceTree = "<group>"; };
+		DCA0B3B707B0566900004706 /* ADClockTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADClockTasks.h; sourceTree = "<group>"; };
+		DCA0B3B807B0566900004706 /* ADClockTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADClockTasks.m; sourceTree = "<group>"; };
 		DCA0B4CD07B072D500004706 /* helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helper; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA0B4D907B0732C00004706 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		DCA0B4E207B074A500004706 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
@@ -474,8 +477,8 @@
 		DCEAE99E07DC4624007FE65C /* CalendarBack.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = CalendarBack.tiff; path = images/CalendarBack.tiff; sourceTree = "<group>"; };
 		DCEAEA6907E04996007FE65C /* EditorController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = EditorController.m; sourceTree = "<group>"; };
 		DCEAEA6A07E04996007FE65C /* EditorController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = EditorController.h; sourceTree = "<group>"; };
-		DCEAEB9907E16728007FE65C /* AlarmScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmScheduler.h; sourceTree = "<group>"; };
-		DCEAEB9A07E16728007FE65C /* AlarmScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmScheduler.m; sourceTree = "<group>"; };
+		DCEAEB9907E16728007FE65C /* ADClockScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADClockScheduler.h; sourceTree = "<group>"; };
+		DCEAEB9A07E16728007FE65C /* ADClockScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADClockScheduler.m; sourceTree = "<group>"; };
 		DCEAEC1407E177C8007FE65C /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
 		DCEAEC1507E177C8007FE65C /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
 		DCEAED3507E19FF4007FE65C /* Date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Date.png; path = images/Date.png; sourceTree = "<group>"; };
@@ -517,12 +520,12 @@
 			children = (
 				DC8CA6C4068E026F00F1BB2E /* Prefs.h */,
 				DC8CA6C5068E026F00F1BB2E /* Prefs.m */,
-				DCEAEB9907E16728007FE65C /* AlarmScheduler.h */,
-				DCEAEB9A07E16728007FE65C /* AlarmScheduler.m */,
+				DCEAEB9907E16728007FE65C /* ADClockScheduler.h */,
+				DCEAEB9A07E16728007FE65C /* ADClockScheduler.m */,
 				DCEAEC1407E177C8007FE65C /* Alarm.h */,
 				DCEAEC1507E177C8007FE65C /* Alarm.m */,
-				DCA0B3B707B0566900004706 /* AlarmTasks.h */,
-				DCA0B3B807B0566900004706 /* AlarmTasks.m */,
+				DCA0B3B707B0566900004706 /* ADClockTasks.h */,
+				DCA0B3B807B0566900004706 /* ADClockTasks.m */,
 			);
 			name = "Core Classes";
 			sourceTree = "<group>";
@@ -554,7 +557,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Alarm Clock.app */,
+				8D1107320486CEB800E47090 /* AD Clock.app */,
 				DCA0B4CD07B072D500004706 /* helper */,
 				B7F65E7E189E152501F12272 /* wakehelper */,
 			);
@@ -593,15 +596,17 @@
 				DC81FABA077E02A500F0C1C6 /* CalendarAdditions.m */,
 				DC092FA409A97E17004B788B /* MTCoreAudioDevice.h */,
 				DC092FA509A97E17004B788B /* MTCoreAudioDevice.m */,
-				32CA4F630368D1EE00C91783 /* AlarmClock_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* ADClock_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				DC7410850A3ECAB200CEB97F /* MyApplication.h */,
 				DC7410860A3ECAB200CEB97F /* MyApplication.m */,
 				97408BDDD6D9D8EC7328EDEC /* AlarmWakeHelperProtocol.h */,
 				1893924C8B5FAC1A1819E7D4 /* WakeHelperMain.m */,
-				5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */,
-				814EDA2EE4FA56439633EF96 /* AlarmClock.entitlements */,
+				5B04831F362A4F4665B8F702 /* com.3czplay.adclock.wakehelper.plist */,
+				814EDA2EE4FA56439633EF96 /* ADClock.entitlements */,
 				3C61A9828332FDD15B458A18 /* WakeHelper.entitlements */,
+				C3F709F56561FC776FE1B569 /* AlarmController.h */,
+				CC67837485BC408E2059D3FF /* AlarmController.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -618,8 +623,8 @@
 				DCEAE99E07DC4624007FE65C /* CalendarBack.tiff */,
 				DCBDF73F0B54801900407A6C /* Playlist Icons */,
 				DCBDF75E0B54805100407A6C /* Preferences Icons */,
-				DC121FBD06BA2D4100132FBF /* AlarmClock.icns */,
-				DC7410AF0A3ECF0600CEB97F /* AlarmClock.sdef */,
+				DC121FBD06BA2D4100132FBF /* ADClock.icns */,
+				DC7410AF0A3ECF0600CEB97F /* ADClock.sdef */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				DCDB0F6109876D9900FE4707 /* InfoPlist.strings */,
 				DCE204280998A8FD00B764E0 /* Credits.html */,
@@ -676,8 +681,8 @@
 		DC0BEF8109C8015C00C89A78 /* AlarmWindow.nib */ = {
 			isa = PBXGroup;
 			children = (
-				DC8FAFE906F57B45005B5B92 /* AlarmController.h */,
-				DC8FAFEA06F57B45005B5B92 /* AlarmController.m */,
+				DC8FAFE906F57B45005B5B92 /* ADClockController.h */,
+				DC8FAFEA06F57B45005B5B92 /* ADClockController.m */,
 			);
 			name = AlarmWindow.nib;
 			sourceTree = "<group>";
@@ -805,16 +810,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D1107280486CEB800E47090 /* AlarmClock_Prefix.pch in Headers */,
+				8D1107280486CEB800E47090 /* ADClock_Prefix.pch in Headers */,
 				DC8CA6C6068E026F00F1BB2E /* Prefs.h in Headers */,
 				DC337C9A06AD2C9D0058AEBE /* MenuController.h in Headers */,
-				DC8FAFEB06F57B45005B5B92 /* AlarmController.h in Headers */,
+				DC8FAFEB06F57B45005B5B92 /* ADClockController.h in Headers */,
 				DC81FABB077E02A500F0C1C6 /* CalendarAdditions.h in Headers */,
-				DCA0B3B907B0566900004706 /* AlarmTasks.h in Headers */,
+				DCA0B3B907B0566900004706 /* ADClockTasks.h in Headers */,
 				DCCE276B07BF0EC900A0851D /* PrefsController.h in Headers */,
 				DCEAE98907DC41C9007FE65C /* CalendarView.h in Headers */,
 				DCEAEA6C07E04996007FE65C /* EditorController.h in Headers */,
-				DCEAEB9B07E16728007FE65C /* AlarmScheduler.h in Headers */,
+				DCEAEB9B07E16728007FE65C /* ADClockScheduler.h in Headers */,
 				DCEAEC1607E177C8007FE65C /* Alarm.h in Headers */,
 				DC6C828C07F9693400933C45 /* RoundedView.h in Headers */,
 				DC6C82A507F96A5000933C45 /* RoundedWindow.h in Headers */,
@@ -853,9 +858,9 @@
 			productReference = B7F65E7E189E152501F12272 /* wakehelper */;
 			productType = "com.apple.product-type.tool";
 		};
-		8D1107260486CEB800E47090 /* AlarmClock */ = {
+		8D1107260486CEB800E47090 /* ADClock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCD949B70856C4500026EC8A /* Build configuration list for PBXNativeTarget "AlarmClock" */;
+			buildConfigurationList = DCD949B70856C4500026EC8A /* Build configuration list for PBXNativeTarget "ADClock" */;
 			buildPhases = (
 				8D1107270486CEB800E47090 /* Headers */,
 				8D1107290486CEB800E47090 /* Resources */,
@@ -869,10 +874,10 @@
 			dependencies = (
 				BBE10710E3C9FD0E4BDD2A6B /* PBXTargetDependency */,
 			);
-			name = AlarmClock;
+			name = ADClock;
 			productInstallPath = "$(HOME)/Applications";
 			productName = AlarmClock;
-			productReference = 8D1107320486CEB800E47090 /* Alarm Clock.app */;
+			productReference = 8D1107320486CEB800E47090 /* AD Clock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -916,7 +921,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* AlarmClock */,
+				8D1107260486CEB800E47090 /* ADClock */,
 				0CB526D24AB6967355928B18 /* wakehelper */,
 			);
 		};
@@ -929,7 +934,7 @@
 			files = (
 				DCDB0F7B09876E3400FE4707 /* MainMenu.nib in Resources */,
 				DCDB0F6209876D9900FE4707 /* InfoPlist.strings in Resources */,
-				DC121FBE06BA2D4100132FBF /* AlarmClock.icns in Resources */,
+				DC121FBE06BA2D4100132FBF /* ADClock.icns in Resources */,
 				DC8FAFE806F57A76005B5B92 /* AlarmWindow.nib in Resources */,
 				DCE204290998A8FD00B764E0 /* Credits.html in Resources */,
 				DCEAE99F07DC4624007FE65C /* CalendarBack.tiff in Resources */,
@@ -950,7 +955,7 @@
 				DC117AAD0A1888FE0096B086 /* StopwatchWindow.nib in Resources */,
 				DC117AB90A188C5D0096B086 /* TimerWindow.strings in Resources */,
 				DC117AC50A188D880096B086 /* StopwatchWindow.strings in Resources */,
-				DC7410B00A3ECF0600CEB97F /* AlarmClock.sdef in Resources */,
+				DC7410B00A3ECF0600CEB97F /* ADClock.sdef in Resources */,
 				DCCF25800A9A8C5C003DD8A4 /* trayIconBlackAlert.png in Resources */,
 				DCCF25990A9A8C92003DD8A4 /* trayIconGray.png in Resources */,
 				DCB385040AEABC680047D654 /* moon.png in Resources */,
@@ -992,13 +997,13 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				DC8CA6C7068E026F00F1BB2E /* Prefs.m in Sources */,
 				DC337C9906AD2C9D0058AEBE /* MenuController.m in Sources */,
-				DC8FAFEC06F57B45005B5B92 /* AlarmController.m in Sources */,
+				DC8FAFEC06F57B45005B5B92 /* ADClockController.m in Sources */,
 				DC81FABC077E02A500F0C1C6 /* CalendarAdditions.m in Sources */,
-				DCA0B3BA07B0566900004706 /* AlarmTasks.m in Sources */,
+				DCA0B3BA07B0566900004706 /* ADClockTasks.m in Sources */,
 				DCCE276C07BF0EC900A0851D /* PrefsController.m in Sources */,
 				DCEAE98A07DC41C9007FE65C /* CalendarView.m in Sources */,
 				DCEAEA6B07E04996007FE65C /* EditorController.m in Sources */,
-				DCEAEB9C07E16728007FE65C /* AlarmScheduler.m in Sources */,
+				DCEAEB9C07E16728007FE65C /* ADClockScheduler.m in Sources */,
 				DCEAEC1707E177C8007FE65C /* Alarm.m in Sources */,
 				DC6C828B07F9693400933C45 /* RoundedView.m in Sources */,
 				DC6C82A607F96A5000933C45 /* RoundedWindow.m in Sources */,
@@ -1013,6 +1018,7 @@
 				DC1177F70A1703800096B086 /* StopwatchController.m in Sources */,
 				DC7410880A3ECAB200CEB97F /* MyApplication.m in Sources */,
 				DC2E2CD80B59A393001ABCB5 /* RHDateToStringTransformer.m in Sources */,
+				E30FFDEBCE4E7E07468D932C /* AlarmController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1371,7 +1377,7 @@
 					"-framework",
 					Security,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1398,7 +1404,7 @@
 					"-framework",
 					Security,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1425,7 +1431,7 @@
 					"-framework",
 					Security,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1437,7 +1443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = AlarmClock.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ADClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -1456,7 +1462,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = AlarmClock_Prefix.pch;
+				GCC_PREFIX_HEADER = ADClock_Prefix.pch;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
@@ -1472,7 +1478,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-Wno-selector";
 				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock;
-				PRODUCT_NAME = "Alarm Clock";
+				PRODUCT_NAME = "AD Clock";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
@@ -1491,7 +1497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = AlarmClock.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ADClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -1509,7 +1515,7 @@
 				GCC_ENABLE_TRIGRAPHS = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = AlarmClock_Prefix.pch;
+				GCC_PREFIX_HEADER = ADClock_Prefix.pch;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
@@ -1525,7 +1531,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-Wno-selector";
 				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock;
-				PRODUCT_NAME = "Alarm Clock";
+				PRODUCT_NAME = "AD Clock";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
@@ -1659,7 +1665,7 @@
 					"-framework",
 					Security,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock.wakehelper;
 				PRODUCT_NAME = wakehelper;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1680,7 +1686,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		DCD949B70856C4500026EC8A /* Build configuration list for PBXNativeTarget "AlarmClock" */ = {
+		DCD949B70856C4500026EC8A /* Build configuration list for PBXNativeTarget "ADClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCD949B80856C4500026EC8A /* Development */,

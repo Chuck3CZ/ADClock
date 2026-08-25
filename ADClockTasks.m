@@ -1,6 +1,6 @@
-#import "AlarmTasks.h"
+#import "ADClockTasks.h"
 #import "Prefs.h"
-#import "AlarmScheduler.h"
+#import "ADClockScheduler.h"
 #import "WindowManager.h"
 #import "CalendarAdditions.h"
 
@@ -30,7 +30,7 @@ io_object_t notifierObject;
 
 
 // Declare private methods
-@interface AlarmTasks (PrivateAPI)
+@interface ADClockTasks (PrivateAPI)
 + (SMAppService *)wakeHelperService;
 + (BOOL)scheduleWakeEventAdd:(BOOL)add atDate:(NSDate *)date;
 + (void)runHelperToolWithArg:(int)arg;
@@ -41,7 +41,7 @@ io_object_t notifierObject;
 @end
 
 
-@implementation AlarmTasks
+@implementation ADClockTasks
 
 // CLASS VARIABLES
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +59,7 @@ static NSDate *wakeDate;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- Initializes everything needed for the AlarmTasks class.
+ Initializes everything needed for the ADClockTasks class.
  This includes registering for system power notifications, as well as starting a timer to check for alarms.
  
  Note that this method is automatically called (courtesy of Cocoa) before the first method of this class is called.
@@ -73,7 +73,7 @@ static NSDate *wakeDate;
 	static BOOL initialized = NO;
 	if(!initialized)
 	{
-		NSLog(@"Initializing AlarmTasks...");
+		NSLog(@"Initializing ADClockTasks...");
 		
 		NSLog(@"Registering for system power notifications...");
 		
@@ -143,7 +143,7 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 			// B. Closing the lid of a laptop
 			// C. Selecting sleep from the Apple menu
 			NSLog(@"kIOMessageSystemWillSleep");
-			[AlarmTasks prepareForSleep];
+			[ADClockTasks prepareForSleep];
 			IOAllowPowerChange(root_port, (long)messageArgument);
 			break;
 		case kIOMessageCanSystemSleep:
@@ -164,7 +164,7 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 			break;
 		case kIOMessageSystemHasPoweredOn:
 			NSLog(@"kIOMessageSystemHasPoweredOn");
-			[AlarmTasks wakeFromSleep];
+			[ADClockTasks wakeFromSleep];
 			break;
 	}
 }
@@ -180,7 +180,7 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 **/
 + (SMAppService *)wakeHelperService
 {
-	return [SMAppService daemonServiceWithPlistName:@"com.3czplay.alarmclock3.wakehelper.plist"];
+	return [SMAppService daemonServiceWithPlistName:@"com.3czplay.adclock.wakehelper.plist"];
 }
 
 /**
@@ -253,7 +253,7 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 	[wakeDate release];
 	
 	// We get the time of the next scheduled alarm
-	wakeDate = [AlarmScheduler nextAlarmDate];
+	wakeDate = [ADClockScheduler nextAlarmDate];
 	
 	// What if an open alarm is currently snoozing, or a timer is active, etc...
 	// So we also get the earliest date an open window may need to wake up
@@ -299,7 +299,7 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 		// Update all the alarms, so we don't have 50 go off at once
 		// Which is entirely possible since we're not configured to wake the system from sleep
 		// Because the computer may have slept through a dozen alarms
-		[AlarmScheduler updateAllAlarms];
+		[ADClockScheduler updateAllAlarms];
 	}
 	
 	// Inform all open windows that we've woken from sleep
@@ -482,11 +482,11 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 	int alarmStatus;
 	do
 	{
-		alarmStatus = [AlarmScheduler alarmStatus:now];
+		alarmStatus = [ADClockScheduler alarmStatus:now];
 		
 		if(alarmStatus > 0)
 		{
-			NSLog(@"AlarmTasks: Alarm should sound!");
+			NSLog(@"ADClockTasks: Alarm should sound!");
 			[WindowManager openAlarmWindow];
 		}
 		

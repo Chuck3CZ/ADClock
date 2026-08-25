@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface AlarmTasks : NSObject
+@interface ADClockTasks : NSObject
 
 + (void)initialize;
 + (void)deinitialize;

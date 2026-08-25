@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.3czplay.alarmclock3.wakehelper</string>
+	<string>com.3czplay.adclock.wakehelper</string>
 	<key>MachServices</key>
 	<dict>
-		<key>com.3czplay.alarmclock3.wakehelper</key>
+		<key>com.3czplay.adclock.wakehelper</key>
 		<true/>
 	</dict>
 	<key>Program</key>

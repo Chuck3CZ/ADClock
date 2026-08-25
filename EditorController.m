@@ -1,5 +1,5 @@
 #import "EditorController.h"
-#import "AlarmScheduler.h"
+#import "ADClockScheduler.h"
 #import "Alarm.h"
 #import "CalendarView.h"
 #import "ITunesData.h"
@@ -100,8 +100,8 @@
 		}
 		else
 		{
-			alarmReference = [[AlarmScheduler alarmReferenceForIndex:index] retain];
-			alarm = [[AlarmScheduler alarmCloneForIndex:index] retain];
+			alarmReference = [[ADClockScheduler alarmReferenceForIndex:index] retain];
+			alarm = [[ADClockScheduler alarmCloneForIndex:index] retain];
 		}
 		
 		// Intialize images
@@ -1292,9 +1292,9 @@
 	{
 		// Register alarm with Alarms
 		if(alarmReference == nil)
-			[AlarmScheduler addAlarm:alarm];
+			[ADClockScheduler addAlarm:alarm];
 		else
-			[AlarmScheduler setAlarm:alarm forReference:alarmReference];
+			[ADClockScheduler setAlarm:alarm forReference:alarmReference];
 		
 		// Close the window
 		// Note: this is different than performClose as the delegate is NOT sent shouldWindowClose
@@ -1318,7 +1318,7 @@
 - (IBAction)delete:(id)sender
 {
 	// Delete the alarm, using the original reference
-	[AlarmScheduler removeAlarm:alarmReference];
+	[ADClockScheduler removeAlarm:alarmReference];
 	
 	// Close the window
 	// Note: this is different than performClose as the delegate is NOT sent shouldWindowClose

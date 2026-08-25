@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
-<dictionary title="Alarm Clock Terminology">
+<dictionary title="AD Clock Terminology">
 	
 	<!--
-		Alarm Clock Suite
+		AD Clock Suite
 	-->
-	<suite name="Alarm Clock Suite" code="Alrm" description="Alarm Clock commands.">
+	<suite name="AD Clock Suite" code="Alrm" description="AD Clock commands.">
 		
 		<!-- Commands -->
 		<command name="snooze" code="AlrmSnoz" description="Snoozes all active alarms." />
 		
 		<!-- Classes: Application -->
-		<class name="app" code="capp" description="Alarm Clock application.">
+		<class name="app" code="capp" description="AD Clock application.">
 			<cocoa class="MyApplication"/>
 			
 			<!-- Methods -->

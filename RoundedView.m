@@ -1,5 +1,5 @@
 #import "RoundedView.h"
-#import "AlarmController.h"
+#import "ADClockController.h"
 
 @implementation RoundedView
 

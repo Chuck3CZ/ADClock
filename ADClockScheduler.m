@@ -1,15 +1,15 @@
-#import "AlarmScheduler.h"
+#import "ADClockScheduler.h"
 #import "Alarm.h"
 #import "CalendarAdditions.h"
 
 
 // Declare private methods
-@interface AlarmScheduler (PrivateAPI)
+@interface ADClockScheduler (PrivateAPI)
 + (void)sortAndAddAlarm:(Alarm *)newAlarm;
 @end
 
 
-@implementation AlarmScheduler
+@implementation ADClockScheduler
 
 // GLOBAL VARIABLES
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +45,7 @@ static NSTimeZone *timeZone;
 	static BOOL initialized = NO;
 	if(!initialized)
 	{
-		NSLog(@"Initializing AlarmScheduler...");
+		NSLog(@"Initializing ADClockScheduler...");
 		initialized = YES;
 		
 		// Initialize alarms

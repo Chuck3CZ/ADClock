@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 @class Alarm;
 
-@interface AlarmScheduler : NSObject
+@interface ADClockScheduler : NSObject
 
 + (void)initialize;
 + (void)deinitialize;

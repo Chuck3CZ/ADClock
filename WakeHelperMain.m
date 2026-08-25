@@ -5,8 +5,8 @@
 
 /**
  The privileged half of the wake-from-sleep feature. Runs as a root LaunchDaemon (installed
- on demand by the sandboxed app via SMAppService, see +[AlarmTasks authenticate] in
- AlarmTasks.m) so it can call IOPMSchedulePowerEvent/IOPMCancelScheduledPowerEvent, which
+ on demand by the sandboxed app via SMAppService, see +[ADClockTasks authenticate] in
+ ADClockTasks.m) so it can call IOPMSchedulePowerEvent/IOPMCancelScheduledPowerEvent, which
  require root and can't be called from inside the App Sandbox.
 **/
 @interface WakeHelperService : NSObject <AlarmWakeHelperProtocol, NSXPCListenerDelegate>

@@ -2,7 +2,7 @@
 
 /**
  XPC protocol implemented by the wakehelper LaunchDaemon (WakeHelperMain.m) and called by the
- sandboxed app (AlarmTasks.m) to schedule/cancel a wake-from-sleep power event.
+ sandboxed app (ADClockTasks.m) to schedule/cancel a wake-from-sleep power event.
  IOPMSchedulePowerEvent/IOPMCancelScheduledPowerEvent require root, which a sandboxed app can
  no longer become itself (the old approach - chown/chmod a setuid helper via
  AuthorizationExecuteWithPrivileges - doesn't work inside the App Sandbox App Store
@@ -15,4 +15,4 @@
 
 @end
 
-#define kAlarmWakeHelperMachServiceName @"com.3czplay.alarmclock3.wakehelper"
+#define kAlarmWakeHelperMachServiceName @"com.3czplay.adclock.wakehelper"
