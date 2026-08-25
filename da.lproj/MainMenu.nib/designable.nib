@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="350" id="513"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <menu title="Menu" id="331" userLabel="BarMenu">
+            <items>
+                <menuItem title="Ny Alarm..." id="372">
+                    <connections>
+                        <action selector="addAlarm:" target="350" id="373"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Ny Timer..." id="514">
+                    <connections>
+                        <action selector="openNewTimer:" target="350" id="516"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Nyt Stopur..." id="515">
+                    <connections>
+                        <action selector="openNewStopwatch:" target="350" id="517"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="333">
+                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                </menuItem>
+                <menuItem title="Om Alarm Clock 2" id="329">
+                    <connections>
+                        <action selector="about:" target="350" id="388"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Check for opdateringer..." id="506">
+                    <connections>
+                        <action selector="checkForUpdates:" target="611" id="617"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Indstillinger" id="360">
+                    <connections>
+                        <action selector="preferences:" target="350" id="493"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="332">
+                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                </menuItem>
+                <menuItem title="Afslut" id="330">
+                    <connections>
+                        <action selector="quit:" target="350" id="369"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="350" userLabel="MenuController" customClass="MenuController">
+            <connections>
+                <outlet property="menu" destination="331" id="370"/>
+                <outlet property="prefsWindow" destination="391" id="494"/>
+            </connections>
+        </customObject>
+        <window title="Alarm Clock Indstillinger" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="391" userLabel="Preferences" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="85" y="703" width="354" height="107"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="832"/>
+            <view key="contentView" id="392">
+                <rect key="frame" x="1" y="1" width="354" height="107"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+        </window>
+        <customObject id="422" userLabel="PrefsController" customClass="PrefsController">
+            <connections>
+                <outlet property="advancedView" destination="527" id="531"/>
+                <outlet property="appleRemoteButton" destination="561" id="563"/>
+                <outlet property="checkForUpdatesButton" destination="596" id="605"/>
+                <outlet property="coloredIconsButton" destination="542" id="564"/>
+                <outlet property="deauthenticateButton" destination="559" id="565"/>
+                <outlet property="easyWakeDefaultButton" destination="552" id="566"/>
+                <outlet property="easyWakeDurationLabel" destination="551" id="567"/>
+                <outlet property="easyWakeDurationSlider" destination="548" id="568"/>
+                <outlet property="easyWakeView" destination="526" id="529"/>
+                <outlet property="generalView" destination="525" id="530"/>
+                <outlet property="keyboardType" destination="554" id="569"/>
+                <outlet property="killDurationLabel" destination="537" id="570"/>
+                <outlet property="killDurationSlider" destination="536" id="571"/>
+                <outlet property="loginButton" destination="560" id="572"/>
+                <outlet property="maxVolumeLabel" destination="550" id="573"/>
+                <outlet property="maxVolumeSlider" destination="546" id="574"/>
+                <outlet property="minVolumeLabel" destination="549" id="575"/>
+                <outlet property="minVolumeSlider" destination="544" id="576"/>
+                <outlet property="prefVolumeLabel" destination="534" id="577"/>
+                <outlet property="prefVolumeSlider" destination="533" id="578"/>
+                <outlet property="snoozeDurationLabel" destination="539" id="579"/>
+                <outlet property="snoozeDurationSlider" destination="540" id="580"/>
+                <outlet property="softwareUpdateView" destination="595" id="608"/>
+                <outlet property="updateIntervalPopup" destination="597" id="607"/>
+                <outlet property="wakeFromSleepButton" destination="557" id="581"/>
+                <outlet property="window" destination="391" id="502"/>
+            </connections>
+        </customObject>
+        <customView id="525" userLabel="General">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="273"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button id="542">
+                    <rect key="frame" x="18" y="237" width="229" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Brug de farvede ikoner i menuen" bezelStyle="regularSquare" imagePosition="leading" alignment="left" inset="2" id="630">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleColoredIcons:" target="422" id="582"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="541">
+                    <rect key="frame" x="32" y="20" width="288" height="26"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Alarmen skal spille uafbrudt (uden brug af slumren (snooze)), før den stoppes automatisk." id="629">
+                        <font key="font" metaFont="label"/>
+                        <color key="textColor" red="0.60000001999999997" green="0.60000001999999997" blue="0.60000001999999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" id="540">
+                    <rect key="frame" x="30" y="112" width="220" height="21"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <sliderCell key="cell" continuous="YES" alignment="left" minValue="5" maxValue="25" doubleValue="10" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="628">
+                        <font key="font" size="12" name="Helvetica"/>
+                    </sliderCell>
+                    <connections>
+                        <action selector="setSnoozeDuration:" target="422" id="584"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" id="539">
+                    <rect key="frame" x="253" y="116" width="84" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" id="627">
+                        <font key="font" metaFont="system"/>
+                        <string key="title">10 minutter
+</string>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="538">
+                    <rect key="frame" x="17" y="139" width="234" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Antal minutters slumren (snooze)" id="626">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="537">
+                    <rect key="frame" x="253" y="54" width="84" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="20 minutter" id="625">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" id="536">
+                    <rect key="frame" x="30" y="50" width="220" height="21"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <sliderCell key="cell" continuous="YES" alignment="left" minValue="15" maxValue="90" doubleValue="20" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="624">
+                        <font key="font" size="12" name="Helvetica"/>
+                    </sliderCell>
+                    <connections>
+                        <action selector="setKillDuration:" target="422" id="585"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" id="535">
+                    <rect key="frame" x="17" y="77" width="114" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Stop efter" id="623">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="534">
+                    <rect key="frame" x="253" y="178" width="38" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="100%" id="622">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" id="533">
+                    <rect key="frame" x="30" y="174" width="220" height="21"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="621">
+                        <font key="font" size="12" name="Helvetica"/>
+                    </sliderCell>
+                    <connections>
+                        <action selector="setPrefVolume:" target="422" id="583"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" id="532">
+                    <rect key="frame" x="17" y="201" width="114" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Alarm volumen" id="620">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="526" userLabel="Easy Wake">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="239"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button id="552">
+                    <rect key="frame" x="18" y="203" width="251" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Brug Gradvis vækning som standard" bezelStyle="regularSquare" imagePosition="leading" alignment="left" inset="2" id="640">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleEasyWakeDefault:" target="422" id="586"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="551">
+                    <rect key="frame" x="253" y="20" width="80" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="12 minutter" id="639">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="550">
+                    <rect key="frame" x="253" y="82" width="38" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="100%" id="638">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="549">
+                    <rect key="frame" x="253" y="144" width="38" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="100%" id="637">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" id="548">
+                    <rect key="frame" x="30" y="16" width="220" height="21"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <sliderCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="14" doubleValue="5" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="636">
+                        <font key="font" size="12" name="Helvetica"/>
+                    </sliderCell>
+                    <connections>
+                        <action selector="setEasyWakeDuration:" target="422" id="589"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" id="547">
+                    <rect key="frame" x="17" y="43" width="253" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Tid fra start volumen til slut volumen" id="635">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" id="546">
+                    <rect key="frame" x="30" y="78" width="220" height="21"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="634">
+                        <font key="font" size="12" name="Helvetica"/>
+                    </sliderCell>
+                    <connections>
+                        <action selector="setMaxVolume:" target="422" id="588"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" id="545">
+                    <rect key="frame" x="17" y="105" width="114" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Slut volumen" id="633">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" id="544">
+                    <rect key="frame" x="30" y="140" width="220" height="21"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="linear" id="632">
+                        <font key="font" size="12" name="Helvetica"/>
+                    </sliderCell>
+                    <connections>
+                        <action selector="setMinVolume:" target="422" id="587"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" id="543">
+                    <rect key="frame" x="17" y="167" width="114" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Start volumen" id="631">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="527" userLabel="Advanced">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="275"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" id="562">
+                    <rect key="frame" x="76" y="56" width="235" height="14"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Tryk på Pause for at slumre (snooze)" id="647">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button id="561">
+                    <rect key="frame" x="58" y="76" width="159" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Aktiver Apple Remote" bezelStyle="regularSquare" imagePosition="leading" alignment="left" inset="2" id="646">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleAppleRemote:" target="422" id="593"/>
+                    </connections>
+                </button>
+                <button id="560">
+                    <rect key="frame" x="58" y="18" width="194" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Start Alarm Clock ved login" bezelStyle="regularSquare" imagePosition="leading" alignment="left" inset="2" id="645">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleLogin:" target="422" id="594"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" id="559">
+                    <rect key="frame" x="66" y="186" width="174" height="32"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="push" title="Annuler godkendelse" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="644">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="deauthenticate:" target="422" id="591"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="558">
+                    <rect key="frame" x="76" y="224" width="123" height="14"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="(Kræver godkendelse)" id="643">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button id="557">
+                    <rect key="frame" x="58" y="239" width="211" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Væk computeren fra vågeblus" bezelStyle="regularSquare" imagePosition="leading" alignment="left" inset="2" id="642">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleWakeFromSleep:" target="422" id="590"/>
+                    </connections>
+                </button>
+                <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="554">
+                    <rect key="frame" x="70" y="113" width="190" height="38"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    <size key="cellSize" width="190" height="18"/>
+                    <size key="intercellSpacing" width="4" height="2"/>
+                    <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" inset="2" id="653">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <cells>
+                        <column>
+                            <buttonCell type="radio" title="Stoppe alarmen" imagePosition="leading" alignment="left" state="on" inset="2" id="555">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <buttonCell type="radio" title="Aktivere slumren (snooze)" imagePosition="leading" alignment="left" tag="1" inset="2" id="556">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </column>
+                    </cells>
+                    <connections>
+                        <action selector="toggleKeyboard:" target="422" id="592"/>
+                    </connections>
+                </matrix>
+                <textField verticalHuggingPriority="750" id="553">
+                    <rect key="frame" x="57" y="157" width="213" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Tryk på en vilkårlig tast skal:" id="641">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="595" userLabel="Software Update">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="119"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button verticalHuggingPriority="750" id="604">
+                    <rect key="frame" x="122" y="12" width="111" height="32"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="push" title="Check Nu" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="652">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="checkForUpdates:" target="611" id="612"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="603">
+                    <rect key="frame" x="144" y="55" width="193" height="14"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Small System Font Text" id="651">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="613" name="value" keyPath="values.SULastCheckTime" id="618">
+                            <dictionary key="options">
+                                <string key="NSNullPlaceholder">Aldrig</string>
+                                <string key="NSValueTransformerName">RHDateToStringTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="602">
+                    <rect key="frame" x="17" y="55" width="125" height="14"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Sidst der blev checket:" id="650">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" id="597">
+                    <rect key="frame" x="194" y="75" width="130" height="26"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <popUpButtonCell key="cell" type="push" title="Månedlig" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="2592000" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="601" id="649">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" title="OtherViews" id="598">
+                            <items>
+                                <menuItem title="Daglig" tag="86400" id="599"/>
+                                <menuItem title="Ugentlig" tag="604800" id="600"/>
+                                <menuItem title="Månedlig" state="on" tag="2592000" id="601"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="setUpdateInterval:" target="422" id="610"/>
+                    </connections>
+                </popUpButton>
+                <button id="596">
+                    <rect key="frame" x="18" y="80" width="173" height="18"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="check" title="Check for opdateringer:" bezelStyle="regularSquare" imagePosition="leading" alignment="left" inset="2" id="648">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleCheckForUpdates:" target="422" id="609"/>
+                    </connections>
+                </button>
+            </subviews>
+        </customView>
+        <customObject id="611" userLabel="SUUpdater" customClass="SUUpdater"/>
+        <userDefaultsController representsSharedInstance="YES" id="613" userLabel="Shared Defaults"/>
+    </objects>
+</document>
