@@ -13,8 +13,8 @@
 #import <IOKit/ps/IOPSKeys.h>
 #import <IOKit/IOMessage.h>
 
-#import <Security/Authorization.h>
-#import <unistd.h>
+#import <ServiceManagement/ServiceManagement.h>
+#import "AlarmWakeHelperProtocol.h"
 
 // Callback function to be invoked by the OS for power notifications
 void callback(void * x,io_service_t y,natural_t messageType,void * messageArgument);
@@ -31,7 +31,8 @@ io_object_t notifierObject;
 
 // Declare private methods
 @interface AlarmTasks (PrivateAPI)
-+ (BOOL)md5Check:(NSString *)path;
++ (SMAppService *)wakeHelperService;
++ (BOOL)scheduleWakeEventAdd:(BOOL)add atDate:(NSDate *)date;
 + (void)runHelperToolWithArg:(int)arg;
 + (void)startTimers;
 + (void)initialCheckForAlarm:(NSTimer *)aTimer;
@@ -172,180 +173,68 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- Checks to see if the user is authenticated.
- That is, if the helper tool has the sticky bit set and the user is set to root.
+ Returns the SMAppService representing the wakehelper LaunchDaemon (see WakeHelperMain.m and
+ com.3czplay.alarmclock3.wakehelper.plist). The daemon runs as root - required to call
+ IOPMSchedulePowerEvent/IOPMCancelScheduledPowerEvent - which this (sandboxed) app can no
+ longer become itself.
 **/
-+ (BOOL)isAuthenticated
++ (SMAppService *)wakeHelperService
 {
-	// Get the path of the helper program
-	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
-	NSString *path = [thisBundle pathForResource:@"helper" ofType:nil];
-	
-	// Check the attributes of the helper tool
-	NSFileManager *fm = [NSFileManager defaultManager];
-	NSDictionary *attr = [fm attributesOfItemAtPath:path error:nil];
-	
-	BOOL needsRepair = NO;
-	NSNumber *permissions;
-	NSString *owner;
-	
-	if((owner = [attr objectForKey:NSFileOwnerAccountName]))
-	{
-		if(![owner isEqualToString:@"root"])
-		{
-			needsRepair = YES;
-		}
-	}
-	if((permissions = [attr objectForKey:NSFilePosixPermissions]))
-	{
-		if([permissions intValue] != 2541) //-rwsr-xr-x
-		{
-			needsRepair = YES;
-		}
-	}
-	
-	return !needsRepair;
+	return [SMAppService daemonServiceWithPlistName:@"com.3czplay.alarmclock3.wakehelper.plist"];
 }
 
 /**
- Performs authentication.
- The helper tool that adds items to the IOPMQueue must be run as root.
- To achieve this we set the file's owner to root, and then set its setuid bit.
- The user needs to authenticate once to do this.
+ Checks to see if the wakehelper daemon is installed and enabled.
+**/
++ (BOOL)isAuthenticated
+{
+	return [[self wakeHelperService] status] == SMAppServiceStatusEnabled;
+}
+
+/**
+ Registers the wakehelper daemon with launchd via SMAppService. macOS handles prompting the
+ user for approval itself (System Settings > Login Items & Extensions) - no admin password
+ dialog needed, unlike the old setuid-helper approach this replaces.
 **/
 + (BOOL)authenticate
-{	
-	// Return immediately if the file doesn't need repair
+{
 	if([self isAuthenticated]) return YES;
-	
-	// Get the path of the helper program
-	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
-	NSString *path = [thisBundle pathForResource:@"helper" ofType:nil];
-	
-	// Check to make sure it's our file (with md5 checksum)
-	if(![self md5Check:path])
+
+	NSError *error = nil;
+	if(![[self wakeHelperService] registerAndReturnError:&error])
 	{
-		NSString *title = NSLocalizedString(@"Security Warning", @"Dialog Title");
-		NSString *message = NSLocalizedString(@"Internal components of the program have been tampered with.\nPlease reinstall the application.", @"Dialog Message");
+		NSLog(@"Failed to register wakehelper: %@", error);
+
+		NSString *title = NSLocalizedString(@"Couldn't Enable Wake From Sleep", @"Dialog Title");
+		NSString *message = NSLocalizedString(@"macOS didn't allow the wake-from-sleep helper to be installed. Check System Settings > General > Login Items & Extensions.", @"Dialog Message");
 		NSString *okButton = NSLocalizedString(@"OK", @"Dialog Button");
 		NSAlert *alert = [[NSAlert alloc] init];
-		[alert setAlertStyle:NSAlertStyleCritical];
+		[alert setAlertStyle:NSAlertStyleWarning];
 		[alert setMessageText:title];
 		[alert setInformativeText:message];
 		[alert addButtonWithTitle:okButton];
 		[alert runModal];
 		[alert release];
-		
+
 		return NO;
 	}
-	
-	// Create AuthorizationReference
-	AuthorizationRef authorizationRef;
-	AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
-	
-	// Create path and args for CHOWN
-	char *chown = "/usr/sbin/chown";
-	char *chownArgs[] = {"root", (char*)[path UTF8String], NULL};
-	
-	// Create path and args for CHMOD
-	char *chmod = "/bin/chmod";
-	char *chmodArgs[] = {"4755", (char*)[path UTF8String], NULL};
-	
-	int result1 = AuthorizationExecuteWithPrivileges(authorizationRef, chown, kAuthorizationFlagDefaults, chownArgs, NULL);
-	int result2 = AuthorizationExecuteWithPrivileges(authorizationRef, chmod, kAuthorizationFlagDefaults, chmodArgs, NULL);
-	
-	// Free AuthorizationReferences
-	AuthorizationFree(authorizationRef, kAuthorizationFlagDefaults);
-	
-	return ((result1 == errAuthorizationSuccess) && (result2 == errAuthorizationSuccess));
+
+	return YES;
 }
 
 /**
- Performs de-authentication.
- This returns the helper tool to standard permissions. (removes root owner, and sticky bit)
+ Unregisters the wakehelper daemon.
 **/
 + (BOOL)deauthenticate
 {
-	// Get the path of the helper program
-	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
-	NSString *path = [thisBundle pathForResource:@"helper" ofType:nil];
-	
-	// Create AuthorizationReference
-	AuthorizationRef authorizationRef;
-	AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
-	
-	// Create path and args for CHOWN
-	char *chown = "/usr/sbin/chown";
-	char *chownArgs[] = {getlogin(), (char*)[path UTF8String], NULL};
-	
-	// Create path and args for CHMOD
-	char *chmod = "/bin/chmod";
-	char *chmodArgs[] = {"0755", (char*)[path UTF8String], NULL};
-	
-	int result1 = AuthorizationExecuteWithPrivileges(authorizationRef, chown, kAuthorizationFlagDefaults, chownArgs, NULL);
-	int result2 = AuthorizationExecuteWithPrivileges(authorizationRef, chmod, kAuthorizationFlagDefaults, chmodArgs, NULL);
-	
-	// Free AuthorizationReferences
-	AuthorizationFree(authorizationRef, kAuthorizationFlagDefaults);
-	
-	return ((result1 == errAuthorizationSuccess) && (result2 == errAuthorizationSuccess));
-}
+	NSError *error = nil;
+	if(![[self wakeHelperService] unregisterAndReturnError:&error])
+	{
+		NSLog(@"Failed to unregister wakehelper: %@", error);
+		return NO;
+	}
 
-/**
- It is possible for someone to replace the helper tool with a program that does considerable harm,
- since it is run with extra privledges.
- In order to prevent this from occuring, we refuse to authenticate if the helper tool isn't specifically ours.
- Perform an md5 checksum to be safe.
-**/
-+ (BOOL)md5Check:(NSString *)path
-{
-	NSArray *args = [NSArray arrayWithObject:path];
-	
-	NSTask *md5 = [[NSTask alloc] init];
-    NSPipe *pipe = [NSPipe pipe];
-    NSFileHandle *readHandle = [pipe fileHandleForReading];
-	
-	[md5 setLaunchPath:@"/sbin/md5"];
-	[md5 setArguments:args];
-    [md5 setStandardOutput:pipe]; 
-    [md5 launch];
-	
-	// Don't use waitUntilExit - It has problems
-	// [md5 waitUntilExit];
-	
-	do {
-		[NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
-	} while([md5 isRunning]);
-	
-	NSString *output = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
-	// NSLog(@"md5Check: %@", output);
-	
-	[output autorelease];
-    [md5 autorelease];
-	
-	// I once read on CocoaDev:
-	// Be aware that someone could hack your app's executable... 
-	// (@"" constant strings are stored as plain text in the executable.)
-	// Using a C string would solve this.
-	// 
-	// I'm not sure if this is completely true or not, but it's worth doing since it's so easy to do.
-	// Thus we use the stringWithUFT8String: method below for critical secret strings.
-	// 
-	// Update: A simple hex dump of an application file in TextWrangler reveals
-	// @"" constant strings, but not C strings, so the CocoaDev poster seems somewhat credible.
-	
-	NSString *deployment1 = [NSString stringWithUTF8String:"e69c05e940c5a2ac4eaaa5bc3181dc2a\n"];
-	NSString *deployment2 = [NSString stringWithUTF8String:"3c4a8517068608990d7a52880151921a\n"];
-	NSString *development = [NSString stringWithUTF8String:"1ff9a5068b5e301dc325cbe84c7a6dac\n"];
-	
-	// Deployment build
-	if([output hasSuffix:deployment1] || [output hasSuffix:deployment2])
-		return YES;
-	// Development build
-	if([output hasSuffix:development])
-		return YES;
-	
-	return NO;
+	return YES;
 }
 
 // HANDLING SLEEP METHODS
@@ -426,9 +315,50 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 
 
 /**
- Invokes the helper tool
- If arg is 1 - an IOPM event will be added
- If arg is 0 - an IOPM event will be deleted
+ Opens an XPC connection to the wakehelper daemon and asks it to add or cancel the scheduled
+ wake event, waiting synchronously (with a timeout) for the reply - callers of
+ runHelperToolWithArg: need the completed result before returning, same as the old NSTask-based
+ implementation this replaces.
+**/
++ (BOOL)scheduleWakeEventAdd:(BOOL)add atDate:(NSDate *)date
+{
+	__block BOOL success = NO;
+	dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+
+	NSXPCConnection *connection = [[NSXPCConnection alloc] initWithMachServiceName:kAlarmWakeHelperMachServiceName options:NSXPCConnectionPrivileged];
+	[connection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(AlarmWakeHelperProtocol)]];
+	[connection resume];
+
+	id<AlarmWakeHelperProtocol> proxy = [connection remoteObjectProxyWithErrorHandler:^(NSError *error) {
+		NSLog(@"WakeHelper XPC error: %@", error);
+		dispatch_semaphore_signal(sema);
+	}];
+
+	void (^replyBlock)(BOOL) = ^(BOOL result) {
+		success = result;
+		dispatch_semaphore_signal(sema);
+	};
+
+	if(add)
+		[proxy scheduleWakeAtDate:date reply:replyBlock];
+	else
+		[proxy cancelWakeAtDate:date reply:replyBlock];
+
+	// Wait for the XPC reply (or error handler) - called from the system sleep/wake callback,
+	// which needs a prompt answer before it can allow the sleep transition to proceed.
+	dispatch_semaphore_wait(sema, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
+	dispatch_release(sema);
+
+	[connection invalidate];
+	[connection release];
+
+	return success;
+}
+
+/**
+ Asks the wakehelper daemon to add or remove the scheduled wake-from-sleep power event.
+ If arg is 1 - a wake event will be scheduled
+ If arg is 0 - the scheduled wake event will be canceled
 **/
 + (void)runHelperToolWithArg:(int)arg
 {
@@ -438,82 +368,39 @@ void callback(void * x, io_service_t y, natural_t messageType, void * messageArg
 		NSLog(@"Nothing to wake up for...");
 		return;
 	}
-	
+
 	if(![Prefs wakeFromSleep])
 	{
 		NSLog(@"Not configured to wake computer from sleep...");
 		return;
 	}
-	
-	// Setup the argument list
-	NSMutableArray *args = [NSMutableArray arrayWithCapacity:2];
-	
-	// Argument 0: PM event type
-	[args addObject:[NSString stringWithFormat:@"%i",arg]];
-	
-	// Argument 1: Time of event, measured as number of seconds since reference date
+
 	if(arg == 1)
 	{
-		// We are adding an IOPM event: figure out the the time to use
+		// We are scheduling a wake event: figure out the time to use
 		double secondsTilAlarm = [wakeDate timeIntervalSinceNow];
-		if(secondsTilAlarm > 60)
-		{
-			// We have at least 60 seconds til alarm is set to go off
-			NSString *targetStr = [NSString stringWithFormat:@"%f", [wakeDate timeIntervalSinceReferenceDate]];
-			[args addObject:targetStr];
-		}
-		else
+		if(secondsTilAlarm <= 60)
 		{
 			// We barely have any time til the alarm goes off
 			// We don't want to set the alarm at its normal time, as it may not wake the computer in time
 			// Some computers can take up to 30 seconds to go to sleep...
 			// And after they go to sleep, they may ignore wake requests within only a few seconds
-			
+
 			// To be safe, we want to make sure the wake time is at least 60 seconds from now
 			// We also try to get this as close as possible to the alarm time
 			double secondsTilWake = 60.0 - secondsTilAlarm;
-			
+
 			[wakeDate autorelease];
 			wakeDate = [[wakeDate dateByAddingTimeInterval:secondsTilWake] retain];
-			
-			NSString *targetStr = [NSString stringWithFormat:@"%f", [wakeDate timeIntervalSinceReferenceDate]];
-			[args addObject:targetStr];
 		}
+
+		[self scheduleWakeEventAdd:YES atDate:wakeDate];
 	}
 	else
 	{
-		// We are deleting an IOPM event: use the wakeDate that was previously set
-		NSString *targetStr = [NSString stringWithFormat:@"%f", [wakeDate timeIntervalSinceReferenceDate]];
-		[args addObject:targetStr];
+		// We are canceling the wake event: use the wakeDate that was previously set
+		[self scheduleWakeEventAdd:NO atDate:wakeDate];
 	}
-	
-	// Get the path of the helper program
-	NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
-	NSString *path = [thisBundle pathForResource:@"helper" ofType:nil];
-	
-	NSTask *task = [[[NSTask alloc] init] autorelease];
-	[task setLaunchPath:path];
-	[task setArguments:args];
-	[task launch];
-	
-	// Previously, the following code was used
-	// [task waitUntilExit];
-	
-	// This is pretty standard textbook procedure, but caused a problem.
-	// The above call would crash, if both prepareForSleep and wakeFromSleep were called at the same time
-	// But wait! How could they both be running at the same time? They must be in different threads right??
-	// The answer, mysteriously, seems to be NO.
-	// According to the documentation for [task waitUntilExit]:
-	//   This method first checks to see if the receiver is still running using isRunning.
-	//   Then it polls the current run loop using NSDefaultRunLoopMode until the task completes.
-	// So possibly, it sets up some kind of crazy callback scheme, which was apparently crashing the app.
-	// Well, what I really need is for the thread to sleep until the task is done
-	// So I just wrote my own simple implementation of waitUntilExit, which simply checks and sleeps
-	// And ironically, it seems to be faster!
-	
-	do {
-		[NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.05]];
-	} while([task isRunning]);
 }
 
 // TIMER METHODS

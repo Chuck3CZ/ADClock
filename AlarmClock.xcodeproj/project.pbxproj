@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		069D48D99A25605409736CC1 /* com.3czplay.alarmclock3.wakehelper.plist in Embed Wake Helper LaunchDaemon */ = {isa = PBXBuildFile; fileRef = 5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */; };
 		5B6DC7EF2E481EEE000FC22E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BF23A91DBA84A2005D1760 /* AVFoundation.framework */; };
 		5B6DC7F12E481EF0000FC22E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		5B6DC7F32E481EF1000FC22E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC092FE709A9806C004B788B /* CoreAudio.framework */; };
@@ -15,8 +16,11 @@
 		5B6DC7F92E481EF4000FC22E /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3488622390A0B500FE69D5 /* iTunesLibrary.framework */; };
 		5B6DC7FB2E481EF5000FC22E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA0B4E207B074A500004706 /* Security.framework */; };
 		5B6DC8002E481EF6000FC22E /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6DC8012E481EF7000FC22E /* ServiceManagement.framework */; };
+		6E088F0FFBE35BA96F5A1AAD /* wakehelper in Embed Wake Helper */ = {isa = PBXBuildFile; fileRef = B7F65E7E189E152501F12272 /* wakehelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8952B34CBEAA37B7475E538E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB93E8D756E964B85BB4962 /* Cocoa.framework */; };
 		8D1107280486CEB800E47090 /* AlarmClock_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* AlarmClock_Prefix.pch */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		D6D162D29C42C8568FC885DE /* WakeHelperMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893924C8B5FAC1A1819E7D4 /* WakeHelperMain.m */; };
 		DC092FA609A97E17004B788B /* MTCoreAudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = DC092FA409A97E17004B788B /* MTCoreAudioDevice.h */; };
 		DC092FA709A97E17004B788B /* MTCoreAudioDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = DC092FA509A97E17004B788B /* MTCoreAudioDevice.m */; };
 		DC10105409D25A4900D84FD8 /* WindowManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC10105209D25A4900D84FD8 /* WindowManager.h */; };
@@ -60,7 +64,6 @@
 		DC8FAFEC06F57B45005B5B92 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8FAFEA06F57B45005B5B92 /* AlarmController.m */; };
 		DCA0B3B907B0566900004706 /* AlarmTasks.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA0B3B707B0566900004706 /* AlarmTasks.h */; };
 		DCA0B3BA07B0566900004706 /* AlarmTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA0B3B807B0566900004706 /* AlarmTasks.m */; };
-		DCA0B4D507B072EE00004706 /* helper.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA0B4BC07B071F800004706 /* helper.m */; };
 		DCA0B4D607B072FF00004706 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		DCA0B4DA07B0732C00004706 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA0B4D907B0732C00004706 /* IOKit.framework */; };
 		DCB385040AEABC680047D654 /* moon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB385020AEABC680047D654 /* moon.png */; };
@@ -85,7 +88,6 @@
 		DCCF25800A9A8C5C003DD8A4 /* trayIconBlackAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = DCCF257F0A9A8C5C003DD8A4 /* trayIconBlackAlert.png */; };
 		DCCF25990A9A8C92003DD8A4 /* trayIconGray.png in Resources */ = {isa = PBXBuildFile; fileRef = DCCF25980A9A8C92003DD8A4 /* trayIconGray.png */; };
 		DCD39B840A19D70400137959 /* RoundedController.h in Headers */ = {isa = PBXBuildFile; fileRef = DCD39B830A19D70400137959 /* RoundedController.h */; };
-		DCD94A6F0856CF7F0026EC8A /* helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA0B4CD07B072D500004706 /* helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DCDB0F6209876D9900FE4707 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCDB0F6109876D9900FE4707 /* InfoPlist.strings */; };
 		DCDB0F6D09876E0A00FE4707 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCDB0F6C09876E0A00FE4707 /* Localizable.strings */; };
 		DCDB0F7509876E2100FE4707 /* AlarmEditor.nib in Resources */ = {isa = PBXBuildFile; fileRef = DCDB0F7409876E2100FE4707 /* AlarmEditor.nib */; };
@@ -116,24 +118,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DCD94A600856CF4E0026EC8A /* PBXContainerItemProxy */ = {
+		6F268AE0AEAD3A607A6D6361 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DCA0B4CC07B072D500004706;
-			remoteInfo = helper;
+			remoteGlobalIDString = 0CB526D24AB6967355928B18;
+			remoteInfo = wakehelper;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DCD94A620856CF5B0026EC8A /* CopyFiles */ = {
+		CFD303AE2C77FCADD9E5450B /* Embed Wake Helper LaunchDaemon */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchDaemons;
+			dstSubfolderSpec = 1;
+			files = (
+				069D48D99A25605409736CC1 /* com.3czplay.alarmclock3.wakehelper.plist in Embed Wake Helper LaunchDaemon */,
+			);
+			name = "Embed Wake Helper LaunchDaemon";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F800C7F68873458468F88FAA /* Embed Wake Helper */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 7;
+			dstSubfolderSpec = 6;
 			files = (
-				DCD94A6F0856CF7F0026EC8A /* helper in CopyFiles */,
+				6E088F0FFBE35BA96F5A1AAD /* wakehelper in Embed Wake Helper */,
 			);
+			name = "Embed Wake Helper";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -192,13 +206,19 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		15BF23A91DBA84A2005D1760 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		15BF23AB1DBA84E4005D1760 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1893924C8B5FAC1A1819E7D4 /* WakeHelperMain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WakeHelperMain.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* AlarmClock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmClock_Prefix.pch; sourceTree = "<group>"; };
+		3EB93E8D756E964B85BB4962 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = com.3czplay.alarmclock3.wakehelper.plist; sourceTree = "<group>"; };
 		5B6DC8012E481EF7000FC22E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		814EDA2EE4FA56439633EF96 /* AlarmClock.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = AlarmClock.entitlements; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Alarm Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alarm Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97408BDDD6D9D8EC7328EDEC /* AlarmWakeHelperProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AlarmWakeHelperProtocol.h; sourceTree = "<group>"; };
+		B7F65E7E189E152501F12272 /* wakehelper */ = {isa = PBXFileReference; includeInIndex = 0; path = wakehelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC092FA409A97E17004B788B /* MTCoreAudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCoreAudioDevice.h; sourceTree = "<group>"; };
 		DC092FA509A97E17004B788B /* MTCoreAudioDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCoreAudioDevice.m; sourceTree = "<group>"; };
 		DC092FE709A9806C004B788B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
@@ -382,7 +402,6 @@
 		DC9E79790C28F2F100D815DF /* el */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = el; path = el.lproj/StopwatchWindow.nib; sourceTree = "<group>"; };
 		DCA0B3B707B0566900004706 /* AlarmTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmTasks.h; sourceTree = "<group>"; };
 		DCA0B3B807B0566900004706 /* AlarmTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmTasks.m; sourceTree = "<group>"; };
-		DCA0B4BC07B071F800004706 /* helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helper.m; sourceTree = "<group>"; };
 		DCA0B4CD07B072D500004706 /* helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helper; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA0B4D907B0732C00004706 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		DCA0B4E207B074A500004706 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
@@ -468,6 +487,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5806DB7AC3278D191EB3641E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8952B34CBEAA37B7475E538E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -480,15 +507,6 @@
 				5B6DC7F72E481EF3000FC22E /* IOKit.framework in Frameworks */,
 				5B6DC7F52E481EF2000FC22E /* CoreMedia.framework in Frameworks */,
 				5B6DC8002E481EF6000FC22E /* ServiceManagement.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCA0B4CB07B072D500004706 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DCA0B4D607B072FF00004706 /* Foundation.framework in Frameworks */,
-				DCA0B4DA07B0732C00004706 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,11 +557,12 @@
 			children = (
 				8D1107320486CEB800E47090 /* Alarm Clock.app */,
 				DCA0B4CD07B072D500004706 /* helper */,
+				B7F65E7E189E152501F12272 /* wakehelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* AlarmClock */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				DC8CA6B0068DFE9B00F1BB2E /* Notes */,
@@ -569,7 +588,6 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DCA0B4BC07B071F800004706 /* helper.m */,
 				DC2E2CD50B59A393001ABCB5 /* RHDateToStringTransformer.h */,
 				DC2E2CD60B59A393001ABCB5 /* RHDateToStringTransformer.m */,
 				DC81FAB9077E02A500F0C1C6 /* CalendarAdditions.h */,
@@ -580,6 +598,10 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				DC7410850A3ECAB200CEB97F /* MyApplication.h */,
 				DC7410860A3ECAB200CEB97F /* MyApplication.m */,
+				97408BDDD6D9D8EC7328EDEC /* AlarmWakeHelperProtocol.h */,
+				1893924C8B5FAC1A1819E7D4 /* WakeHelperMain.m */,
+				5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */,
+				814EDA2EE4FA56439633EF96 /* AlarmClock.entitlements */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -627,8 +649,17 @@
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				33D7843FBD6CEB1B018DA652 /* OS X */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33D7843FBD6CEB1B018DA652 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				3EB93E8D756E964B85BB4962 /* Cocoa.framework */,
+			);
+			name = "OS X";
 			sourceTree = "<group>";
 		};
 		DC0BEF8009C8011C00C89A78 /* MainMenu.nib */ = {
@@ -806,6 +837,22 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0CB526D24AB6967355928B18 /* wakehelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 745C3197321F2675CBF9EF1F /* Build configuration list for PBXNativeTarget "wakehelper" */;
+			buildPhases = (
+				478979BE0D848EE364E9AC50 /* Sources */,
+				5806DB7AC3278D191EB3641E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wakehelper;
+			productName = wakehelper;
+			productReference = B7F65E7E189E152501F12272 /* wakehelper */;
+			productType = "com.apple.product-type.tool";
+		};
 		8D1107260486CEB800E47090 /* AlarmClock */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCD949B70856C4500026EC8A /* Build configuration list for PBXNativeTarget "AlarmClock" */;
@@ -814,34 +861,19 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				DCD94A620856CF5B0026EC8A /* CopyFiles */,
+				F800C7F68873458468F88FAA /* Embed Wake Helper */,
+				CFD303AE2C77FCADD9E5450B /* Embed Wake Helper LaunchDaemon */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DCD94A610856CF4E0026EC8A /* PBXTargetDependency */,
+				BBE10710E3C9FD0E4BDD2A6B /* PBXTargetDependency */,
 			);
 			name = AlarmClock;
 			productInstallPath = "$(HOME)/Applications";
 			productName = AlarmClock;
 			productReference = 8D1107320486CEB800E47090 /* Alarm Clock.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DCA0B4CC07B072D500004706 /* helper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DCD949BB0856C4500026EC8A /* Build configuration list for PBXNativeTarget "helper" */;
-			buildPhases = (
-				DCA0B4CA07B072D500004706 /* Sources */,
-				DCA0B4CB07B072D500004706 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = helper;
-			productName = helper;
-			productReference = DCA0B4CD07B072D500004706 /* helper */;
-			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -879,12 +911,13 @@
 				ja,
 				en,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* AlarmClock */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DCA0B4CC07B072D500004706 /* helper */,
 				8D1107260486CEB800E47090 /* AlarmClock */,
+				0CB526D24AB6967355928B18 /* wakehelper */,
 			);
 		};
 /* End PBXProject section */
@@ -944,6 +977,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		478979BE0D848EE364E9AC50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D162D29C42C8568FC885DE /* WakeHelperMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -975,21 +1016,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCA0B4CA07B072D500004706 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DCA0B4D507B072EE00004706 /* helper.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DCD94A610856CF4E0026EC8A /* PBXTargetDependency */ = {
+		BBE10710E3C9FD0E4BDD2A6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DCA0B4CC07B072D500004706 /* helper */;
-			targetProxy = DCD94A600856CF4E0026EC8A /* PBXContainerItemProxy */;
+			name = wakehelper;
+			target = 0CB526D24AB6967355928B18 /* wakehelper */;
+			targetProxy = 6F268AE0AEAD3A607A6D6361 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1317,10 +1351,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2E45EA195BE01A58C4BBC640 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT2EBE5TBV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INSTALL_PATH = /usr/local/bin;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					IOKit,
+					"-framework",
+					Security,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_NAME = wakehelper;
+				SDKROOT = macosx;
+			};
+			name = Deployment;
+		};
+		7BEF062A0F09C14EF6B796BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT2EBE5TBV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INSTALL_PATH = /usr/local/bin;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					IOKit,
+					"-framework",
+					Security,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_NAME = wakehelper;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C0DC3174728ECA93DEB0B483 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT2EBE5TBV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INSTALL_PATH = /usr/local/bin;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					IOKit,
+					"-framework",
+					Security,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_NAME = wakehelper;
+				SDKROOT = macosx;
+			};
+			name = Development;
+		};
 		DCD949B80856C4500026EC8A /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = AlarmClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -1373,6 +1483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = AlarmClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
@@ -1602,23 +1713,50 @@
 			};
 			name = Deployment;
 		};
+		FA9E8C98AD133EE8A6CA9F4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT2EBE5TBV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INSTALL_PATH = /usr/local/bin;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					IOKit,
+					"-framework",
+					Security,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3.wakehelper;
+				PRODUCT_NAME = wakehelper;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		745C3197321F2675CBF9EF1F /* Build configuration list for PBXNativeTarget "wakehelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA9E8C98AD133EE8A6CA9F4C /* Release */,
+				7BEF062A0F09C14EF6B796BA /* Debug */,
+				C0DC3174728ECA93DEB0B483 /* Development */,
+				2E45EA195BE01A58C4BBC640 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DCD949B70856C4500026EC8A /* Build configuration list for PBXNativeTarget "AlarmClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCD949B80856C4500026EC8A /* Development */,
 				DCD949B90856C4500026EC8A /* Deployment */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
-		};
-		DCD949BB0856C4500026EC8A /* Build configuration list for PBXNativeTarget "helper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DCD949BC0856C4500026EC8A /* Development */,
-				DCD949BD0856C4500026EC8A /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
