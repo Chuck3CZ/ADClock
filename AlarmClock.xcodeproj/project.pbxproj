@@ -209,6 +209,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* AlarmClock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmClock_Prefix.pch; sourceTree = "<group>"; };
+		3C61A9828332FDD15B458A18 /* WakeHelper.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = WakeHelper.entitlements; sourceTree = "<group>"; };
 		3EB93E8D756E964B85BB4962 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = com.3czplay.alarmclock3.wakehelper.plist; sourceTree = "<group>"; };
 		5B6DC8012E481EF7000FC22E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
@@ -216,7 +217,7 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Alarm Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alarm Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97408BDDD6D9D8EC7328EDEC /* AlarmWakeHelperProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AlarmWakeHelperProtocol.h; sourceTree = "<group>"; };
-		B7F65E7E189E152501F12272 /* wakehelper */ = {isa = PBXFileReference; includeInIndex = 0; path = wakehelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F65E7E189E152501F12272 /* wakehelper */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = text; path = wakehelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC092FA409A97E17004B788B /* MTCoreAudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCoreAudioDevice.h; sourceTree = "<group>"; };
 		DC092FA509A97E17004B788B /* MTCoreAudioDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCoreAudioDevice.m; sourceTree = "<group>"; };
 		DC092FE709A9806C004B788B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
@@ -600,6 +601,7 @@
 				1893924C8B5FAC1A1819E7D4 /* WakeHelperMain.m */,
 				5B04831F362A4F4665B8F702 /* com.3czplay.alarmclock3.wakehelper.plist */,
 				814EDA2EE4FA56439633EF96 /* AlarmClock.entitlements */,
+				3C61A9828332FDD15B458A18 /* WakeHelper.entitlements */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -1354,6 +1356,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = WakeHelper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT2EBE5TBV;
@@ -1380,6 +1383,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = WakeHelper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT2EBE5TBV;
@@ -1406,6 +1410,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = WakeHelper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT2EBE5TBV;
@@ -1430,6 +1435,7 @@
 		DCD949B80856C4500026EC8A /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = AlarmClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1457,7 +1463,7 @@
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AlarmClock;
+				INFOPLIST_KEY_CFBundleDisplayName = ADClock;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INSTALL_PATH = Applications;
 				LIBRARY_SEARCH_PATHS = "";
@@ -1465,7 +1471,7 @@
 				MARKETING_VERSION = 2.6.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-Wno-selector";
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock;
 				PRODUCT_NAME = "Alarm Clock";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SECTORDER_FLAGS = "";
@@ -1483,6 +1489,7 @@
 		DCD949B90856C4500026EC8A /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = AlarmClock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1509,7 +1516,7 @@
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AlarmClock;
+				INFOPLIST_KEY_CFBundleDisplayName = ADClock;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INSTALL_PATH = Applications;
 				LIBRARY_SEARCH_PATHS = "";
@@ -1517,7 +1524,7 @@
 				MARKETING_VERSION = 2.6.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-Wno-selector";
-				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.alarmclock3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3czplay.adclock;
 				PRODUCT_NAME = "Alarm Clock";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SECTORDER_FLAGS = "";
@@ -1637,6 +1644,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = WakeHelper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LT2EBE5TBV;
@@ -1670,7 +1678,7 @@
 				2E45EA195BE01A58C4BBC640 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Development;
 		};
 		DCD949B70856C4500026EC8A /* Build configuration list for PBXNativeTarget "AlarmClock" */ = {
 			isa = XCConfigurationList;
