@@ -84,21 +84,32 @@
 
 		if (glassView == nil)
 		{
-			NSVisualEffectView *blur = [[NSVisualEffectView alloc] initWithFrame:[content frame]];
+			// NSVisualEffectView manages its own layer internally - setting a backgroundColor
+			// directly on its layer doesn't reliably stick, so the tint (NSGlassEffectView's
+			// tintColor equivalent) is a separate plain view layered on top of the blur instead.
+			NSView *wrapper = [[NSView alloc] initWithFrame:[content frame]];
+			[wrapper setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+			[wrapper setWantsLayer:YES];
+			[[wrapper layer] setCornerRadius:20.0];
+			[[wrapper layer] setMasksToBounds:YES];
+
+			NSVisualEffectView *blur = [[NSVisualEffectView alloc] initWithFrame:[wrapper bounds]];
 			[blur setMaterial:NSVisualEffectMaterialHUDWindow];
 			[blur setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
 			[blur setState:NSVisualEffectStateActive];
 			[blur setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-			[blur setWantsLayer:YES];
-			[[blur layer] setCornerRadius:20.0];
-			[[blur layer] setMasksToBounds:YES];
-			// Unlike NSGlassEffectView, plain NSVisualEffectView has no tintColor of its own -
-			// with BehindWindow blending it only blurs whatever's behind the window, so without
-			// this the window can look like it has no background at all. This dark overlay is
-			// the fallback's equivalent of the glass tint used in the macOS 26+ branch above.
-			[[blur layer] setBackgroundColor:[[NSColor colorWithCalibratedWhite:0.0 alpha:0.55] CGColor]];
-			[blur addSubview:content];
-			glassView = blur;
+			[wrapper addSubview:blur];
+			[blur release];
+
+			NSView *tint = [[NSView alloc] initWithFrame:[wrapper bounds]];
+			[tint setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+			[tint setWantsLayer:YES];
+			[[tint layer] setBackgroundColor:[[NSColor colorWithCalibratedWhite:0.0 alpha:0.55] CGColor]];
+			[wrapper addSubview:tint];
+			[tint release];
+
+			[wrapper addSubview:content];
+			glassView = wrapper;
 		}
 
 		[self setContentView:glassView];
