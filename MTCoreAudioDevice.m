@@ -27,7 +27,7 @@
 	AudioObjectPropertyAddress propertyAddress;
 	propertyAddress.mSelector = whichDevice;
 	propertyAddress.mScope = kAudioObjectPropertyScopeGlobal;
-	propertyAddress.mElement = kAudioObjectPropertyElementMaster;
+	propertyAddress.mElement = kAudioObjectPropertyElementMain;
 	AudioObjectGetPropertyDataSize( kAudioObjectSystemObject, &propertyAddress, 0, NULL, &theSize );
 	theStatus = AudioObjectGetPropertyData( kAudioObjectSystemObject, &propertyAddress, 0, NULL, &theSize, &theID );
 
@@ -63,9 +63,9 @@
 	
 	theSize = sizeof(Float32);
 	AudioObjectPropertyAddress propertyAddress;
-	propertyAddress.mSelector = kAudioHardwareServiceDeviceProperty_VirtualMasterVolume;
+	propertyAddress.mSelector = kAudioHardwareServiceDeviceProperty_VirtualMainVolume;
 	propertyAddress.mScope = (theDirection == kMTCoreAudioDevicePlaybackDirection)  ? kAudioDevicePropertyScopeOutput : kAudioDevicePropertyScopeInput;
-	propertyAddress.mElement = kAudioObjectPropertyElementMaster;
+	propertyAddress.mElement = kAudioObjectPropertyElementMain;
 	theStatus = AudioObjectGetPropertyData( myDevice, &propertyAddress, 0, NULL, &theSize, &theVolumeScalar );
 	if (theStatus == 0)
 		return theVolumeScalar;
@@ -79,9 +79,9 @@
 	
 	theSize = sizeof(Float32);
     AudioObjectPropertyAddress propertyAddress;
-    propertyAddress.mSelector = kAudioHardwareServiceDeviceProperty_VirtualMasterVolume;
+    propertyAddress.mSelector = kAudioHardwareServiceDeviceProperty_VirtualMainVolume;
     propertyAddress.mScope = (theDirection == kMTCoreAudioDevicePlaybackDirection)  ? kAudioDevicePropertyScopeOutput : kAudioDevicePropertyScopeInput;
-    propertyAddress.mElement = kAudioObjectPropertyElementMaster;
+    propertyAddress.mElement = kAudioObjectPropertyElementMain;
     AudioObjectSetPropertyData( myDevice, &propertyAddress, 0, NULL, theSize, &theVolume );
 }
 

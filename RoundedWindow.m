@@ -50,24 +50,44 @@
 
 /**
  The nib installs our custom RoundedView as the window's content view (and wires it to the
- roundedView outlet). Here we re-parent it inside an NSGlassEffectView so the window gets a
- real Liquid Glass background instead of the old hand-drawn black translucent rectangle.
+ roundedView outlet). Here we re-parent it inside a glass background so the window gets a
+ real Liquid Glass look instead of the old hand-drawn black translucent rectangle. Liquid
+ Glass (NSGlassEffectView) only exists on macOS 26+ - on older systems we fall back to a
+ plain vibrant blur with the same rounded corner, since the deployment target is lower than
+ 26.0 to keep the app running on those systems too.
 **/
 - (void)awakeFromNib
 {
-	if(roundedView && ![[self contentView] isKindOfClass:[NSGlassEffectView class]])
+	if(roundedView && [self contentView] == roundedView)
 	{
 		NSView *content = roundedView;
 		[content retain];
-
-		NSGlassEffectView *glassView = [[NSGlassEffectView alloc] initWithFrame:[content frame]];
-		[glassView setStyle:NSGlassEffectViewStyleRegular];
-		[glassView setCornerRadius:24.0];
-		[glassView setTintColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.35]];
-		[glassView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-
 		[content setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-		[glassView setContentView:content];
+
+		NSView *glassView;
+		if (@available(macOS 26.0, *))
+		{
+			NSGlassEffectView *glass = [[NSGlassEffectView alloc] initWithFrame:[content frame]];
+			[glass setStyle:NSGlassEffectViewStyleRegular];
+			[glass setCornerRadius:24.0];
+			[glass setTintColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.35]];
+			[glass setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+			[glass setContentView:content];
+			glassView = glass;
+		}
+		else
+		{
+			NSVisualEffectView *blur = [[NSVisualEffectView alloc] initWithFrame:[content frame]];
+			[blur setMaterial:NSVisualEffectMaterialHUDWindow];
+			[blur setBlendingMode:NSVisualEffectBlendingModeBehindWindow];
+			[blur setState:NSVisualEffectStateActive];
+			[blur setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+			[blur setWantsLayer:YES];
+			[[blur layer] setCornerRadius:24.0];
+			[[blur layer] setMasksToBounds:YES];
+			[blur addSubview:content];
+			glassView = blur;
+		}
 
 		[self setContentView:glassView];
 

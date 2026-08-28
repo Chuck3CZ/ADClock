@@ -782,7 +782,7 @@
 			[outputDevice setVolume:initialVolume forDirection:kMTCoreAudioDevicePlaybackDirection];
 		}
 		// Rewind movie
-		[movie.currentItem seekToTime:kCMTimeZero];
+		[movie.currentItem seekToTime:kCMTimeZero completionHandler:nil];
 	}
 }
 

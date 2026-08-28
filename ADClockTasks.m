@@ -79,7 +79,7 @@ static NSDate *wakeDate;
 		
 		// Register for system power notifications
 		root_port = IORegisterForSystemPower(0, &notifyPortRef, callback, &notifierObject);
-		if(root_port == (int)NULL)
+		if(root_port == 0)
 		{
 			NSLog(@"IORegisterForSystemPower failed!");
 		}

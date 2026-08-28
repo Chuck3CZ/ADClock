@@ -345,7 +345,7 @@
 	if(type != TYPE_PLAYLIST)
 	{
 		// In this case all we can do is start the song over from the beginning
-		[movie seekToTime:kCMTimeZero];
+		[movie seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {}];
 		return;
 	}
 	
@@ -406,7 +406,7 @@
 	if(type != TYPE_PLAYLIST)
 	{
 		// In this case all we can do is start the song over from the beginning
-		[movie seekToTime:kCMTimeZero];
+		[movie seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {}];
 		return;
 	}
 	
@@ -422,7 +422,7 @@
 	NSInteger seconds = currentTime.value / currentTime.timescale;
 	if(seconds >= 3)
 	{
-		[movie seekToTime:kCMTimeZero];
+		[movie seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {}];
 		return;
 	}
 	
@@ -543,7 +543,7 @@
     if(movie.currentItem == [notification object])
     {
         AVPlayerItem *p = [notification object];
-        [p seekToTime:kCMTimeZero];
+        [p seekToTime:kCMTimeZero completionHandler:nil];
     }
 }
 
