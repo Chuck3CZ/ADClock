@@ -94,6 +94,11 @@
 			[blur setWantsLayer:YES];
 			[[blur layer] setCornerRadius:24.0];
 			[[blur layer] setMasksToBounds:YES];
+			// Unlike NSGlassEffectView, plain NSVisualEffectView has no tintColor of its own -
+			// with BehindWindow blending it only blurs whatever's behind the window, so without
+			// this the window can look like it has no background at all. This dark overlay is
+			// the fallback's equivalent of the glass tint used in the macOS 26+ branch above.
+			[[blur layer] setBackgroundColor:[[NSColor colorWithCalibratedWhite:0.0 alpha:0.55] CGColor]];
 			[blur addSubview:content];
 			glassView = blur;
 		}
