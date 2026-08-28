@@ -16,6 +16,7 @@
 #define WAKE_FROM_SLEEP_KEY    @"WakeFromSleep"
 #define ANY_KEY_STOPS_KEY      @"AnyKeyStops"
 #define LAUNCH_AT_LOGIN_KEY    @"LaunchAtLogin"
+#define DISABLE_LIQUID_GLASS_KEY @"DisableLiquidGlass"
 
 // Hidden Preferences
 #define FIRST_RUN_KEY          @"FirstRun"
@@ -58,6 +59,7 @@
 		[defaultValues setObject:[NSNumber numberWithBool:NO]  forKey:WAKE_FROM_SLEEP_KEY];
 		[defaultValues setObject:[NSNumber numberWithBool:NO]  forKey:ANY_KEY_STOPS_KEY];
 		[defaultValues setObject:[NSNumber numberWithBool:NO]  forKey:LAUNCH_AT_LOGIN_KEY];
+		[defaultValues setObject:[NSNumber numberWithBool:NO]  forKey:DISABLE_LIQUID_GLASS_KEY];
 
 		// Hidden Preferences
 		[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:FIRST_RUN_KEY];
@@ -201,6 +203,16 @@
 + (void)setLaunchAtLogin:(BOOL)flag
 {
 	[[NSUserDefaults standardUserDefaults] setBool:flag forKey:LAUNCH_AT_LOGIN_KEY];
+}
+
++ (BOOL)disableLiquidGlass
+{
+	return [[NSUserDefaults standardUserDefaults] boolForKey:DISABLE_LIQUID_GLASS_KEY];
+}
+
++ (void)setDisableLiquidGlass:(BOOL)flag
+{
+	[[NSUserDefaults standardUserDefaults] setBool:flag forKey:DISABLE_LIQUID_GLASS_KEY];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

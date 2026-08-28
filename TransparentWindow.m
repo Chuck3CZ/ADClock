@@ -1,5 +1,6 @@
 #import "TransparentWindow.h"
 #import "TransparentView.h"
+#import "Prefs.h"
 
 @implementation TransparentWindow
 
@@ -62,18 +63,26 @@
 		[content retain];
 		[content setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
 
-		NSView *glassView;
+		// Disabling Liquid Glass (Advanced preferences, for testing the pre-26 fallback look
+		// without needing an actual older Mac) only makes sense when it's available to begin
+		// with, so the availability check and the preference check are nested together here -
+		// NSGlassEffectView must stay lexically inside the @available block either way.
+		NSView *glassView = nil;
 		if (@available(macOS 26.0, *))
 		{
-			NSGlassEffectView *glass = [[NSGlassEffectView alloc] initWithFrame:[content frame]];
-			[glass setStyle:NSGlassEffectViewStyleRegular];
-			[glass setCornerRadius:20.0];
-			[glass setTintColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.35]];
-			[glass setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-			[glass setContentView:content];
-			glassView = glass;
+			if(![Prefs disableLiquidGlass])
+			{
+				NSGlassEffectView *glass = [[NSGlassEffectView alloc] initWithFrame:[content frame]];
+				[glass setStyle:NSGlassEffectViewStyleRegular];
+				[glass setCornerRadius:20.0];
+				[glass setTintColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.35]];
+				[glass setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+				[glass setContentView:content];
+				glassView = glass;
+			}
 		}
-		else
+
+		if (glassView == nil)
 		{
 			NSVisualEffectView *blur = [[NSVisualEffectView alloc] initWithFrame:[content frame]];
 			[blur setMaterial:NSVisualEffectMaterialHUDWindow];

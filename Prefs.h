@@ -42,6 +42,9 @@
 + (BOOL)launchAtLogin;
 + (void)setLaunchAtLogin:(BOOL)flag;
 
++ (BOOL)disableLiquidGlass;
++ (void)setDisableLiquidGlass:(BOOL)flag;
+
 // Hidden
 + (BOOL)isFirstRun;
 + (void)setIsFirstRun:(BOOL)flag;

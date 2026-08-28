@@ -192,6 +192,16 @@
 	[rows addObjectsFromArray:unclaimed];
 	[rows addObject:(NSView *)loginButton];
 
+	// Testing aid, not a real user-facing setting: lets Liquid Glass be turned off on a
+	// macOS 26+ Mac so the pre-26 fallback look (see RoundedWindow/TransparentWindow) can be
+	// checked without needing an actual older Mac. No outlet since it's built entirely here,
+	// not wired in the nib.
+	NSButton *disableLiquidGlassButton = [NSButton checkboxWithTitle:NSLocalizedString(@"Disable Liquid Glass (for testing)", @"Preference Pane Option")
+																target:self
+																action:@selector(toggleDisableLiquidGlass:)];
+	[disableLiquidGlassButton setState:([Prefs disableLiquidGlass] ? NSControlStateValueOn : NSControlStateValueOff)];
+	[rows addObject:disableLiquidGlassButton];
+
 	NSStackView *stack = [NSStackView stackViewWithViews:rows];
 	[stack setOrientation:NSUserInterfaceLayoutOrientationVertical];
 	[stack setAlignment:NSLayoutAttributeLeading];
@@ -531,6 +541,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Advanced Options:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (IBAction)toggleDisableLiquidGlass:(id)sender
+{
+	[Prefs setDisableLiquidGlass:([sender state] == NSControlStateValueOn)];
+}
 
 - (IBAction)toggleWakeFromSleep:(id)sender
 {
