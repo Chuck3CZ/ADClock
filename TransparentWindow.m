@@ -33,6 +33,14 @@
 		// drawn transparent so the glass content shows through underneath it.
 		[self setTitlebarAppearsTransparent:YES];
 
+		// The whole UI (white text, dark pill controls) is designed to sit on a dark glass
+		// surface regardless of the system's own light/dark mode setting. Liquid Glass follows
+		// the window's effective appearance though, so in Light Mode NSGlassEffectViewStyleRegular
+		// renders light/washed-out and the tintColor set in -awakeFromNib isn't enough to
+		// override that - forcing Dark Aqua here keeps the glass (and the pre-26 blur fallback)
+		// consistently dark.
+		[self setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameDarkAqua]];
+
 		[self setBackgroundColor:[NSColor clearColor]];
 		[self setAlphaValue:1.0];
 		[self setOpaque:NO];
